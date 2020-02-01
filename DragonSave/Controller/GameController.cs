@@ -22,7 +22,7 @@ namespace DragonSave
             }
         }
 
-        public void DrawCards(Gamer gamers)
+        public void DrawCards(Gamer gamer)
         {
             
         }
