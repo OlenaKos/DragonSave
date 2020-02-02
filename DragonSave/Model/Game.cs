@@ -9,13 +9,15 @@ namespace DragonSave
     class Game
     {
         public static int MoveCounter = 0;
-        public static bool isGameRunning = true; 
+        public static bool isGameRunning = true;
+        public static int CurrentGamer { set; get; }
         public List<Gamer> Gamers { get; set; }
         public Deck MainDeck { set; get; }
 
         public Game(int GamersCount, GameController gameController)
         {
             MainDeck = new Deck();
+            CurrentGamer = 0;
             Gamers = new List<Gamer> { };
             Gamers.Add(new RealGamer());
             for (int i = 1; i < GamersCount; i++)

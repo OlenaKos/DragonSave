@@ -31,10 +31,7 @@ namespace DragonSave
 
             InitializeComponent();
             controller = new Controller();
-            mmButton.Content = "Мама+Мама=\nМалыш (при наличии яйца)";
-            nmfButton.Content = "Мама+Папа+Гнездо=\nЯйцо";
-            ffButton.Content = "Папа+Папа=\nЗлодюжка (при нападении)";
-            villainButton.Content = "Злодюжка=\nСворовать яйцо";
+
 
             LD1.Content = 0;
             ED1.Content = 0;          
@@ -61,18 +58,32 @@ namespace DragonSave
                 s.Close();
         }
 
+        public void MakeAlertImpossibleCombination()
+        {
+            ImpossibleCombinationAlert alert = new ImpossibleCombinationAlert();
+            if (alert.ShowDialog() == true)
+                alert.Close();
+        }
+
         private void startButton_Click(object sender, RoutedEventArgs e)
         {
             int gamersAmount = (btnFour.IsChecked == true) ? 4 : (btnThree.IsChecked == true) ? 3 : 2;
             game = controller.StartGame(gamersAmount);
-
 
             foreach (var gamer in game.Gamers)
             {
                 DrawCards(gamer);
             }
 
+            ShowActionCards();
+        }
 
+        private void ShowActionCards()
+        {
+            mmButton.Content = "Мама+Мама=\nМалыш (при наличии яйца)";
+            nmfButton.Content = "Мама+Папа+Гнездо=\nЯйцо";
+            ffButton.Content = "Папа+Папа=\nЗлодюжка (при нападении)";
+            villainButton.Content = "Злодюжка=\nСворовать яйцо";
         }
 
         private void DrawCards(Gamer gamer)
@@ -142,7 +153,16 @@ namespace DragonSave
         }
         private void mmButton_Click(object sender, RoutedEventArgs e)
         {
-            controller.gamerController.UseMotherMotherCombination(game, game.Gamers[0]);
+            if (controller.gamerController.IsMotherMotherCombinationAllowed(game.Gamers[Game.CurrentGamer]) == true)
+            {
+                controller.gamerController.UseMotherMotherCombination(game, game.Gamers[0]);
+                controller.gameController.PerformStep(game);
+            }
+            else
+            {
+                MakeAlertImpossibleCombination();
+            }
+            
         }
         private void nmfButton_Click(object sender, RoutedEventArgs e)
         {

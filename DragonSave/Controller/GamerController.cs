@@ -75,7 +75,26 @@ namespace DragonSave
         public void UseVillainCombination(Game game, Gamer gamer) // corresponds villainButton
         {
             throw new NotImplementedException();
-        } 
+        }
 
+        public bool IsMotherMotherCombinationAllowed(Gamer gamer)
+        {
+            bool res = false;
+            int motherCounter = 0;
+            foreach (var card in gamer.GamerCards)
+            {
+                if (card is Mother)
+                {
+                    motherCounter++; 
+                }
+            }
+
+            if (motherCounter >= 2)
+            {
+                res = true;
+            }
+
+            return res;
+        }
     }
 }

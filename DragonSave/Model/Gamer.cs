@@ -31,7 +31,7 @@ namespace DragonSave
         {
             string Name = Names[gamerCounter];
             gamerCounter++;
-            if (gamerCounter > 3)
+            if (gamerCounter > Names.Length - 1 )
                 gamerCounter = 0;
             return Name;
         }

@@ -27,8 +27,10 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
+
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -48,109 +50,7 @@
         </Grid.RowDefinitions>
         
         
-        <!--4 основных карты + яйца, драконы Player-3-->
-        <ListBox Name="ListBoxP3_1" Grid.Column="4" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="{Binding NameP3_1}" />
-                        <Image Source="{Binding PictureP3_1}"/>
-                        <ContentControl Content="{Binding Image}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <ListBox Name="ListBoxP3_2" Grid.Column="6" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="{Binding NameP3_2}" />
-                        <Image Source="{Binding PictureP3_2}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <ListBox Name="ListBoxP3_3" Grid.Column="8" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="{Binding NameP3_3}" />
-                        <Image Source="{Binding PictureP3_3}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <ListBox Name="ListBoxP3_4" Grid.Column="10" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="{Binding NameP3_4}" />
-                        <Image Source="{Binding PictureP3_4}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <Image Name="D3" Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/baby.jpg" Visibility="Visible"></Image>
-        <Image Name="E3" Grid.Column="8" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/egg.jpg" Visibility="Visible"></Image>
-        <Label Name="LD3" Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Visibility="Visible"></Label>
-        <Label Name="ED3" Grid.Column="8" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Visibility="Visible"></Label>
-        <Image x:Name="Card31" Grid.Column="4" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
-        <Image x:Name="Card32" Grid.Column="6" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
-        <Image x:Name="Card33" Grid.Column="8" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
-        <Image x:Name="Card34" Grid.Column="10" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
 
-
-        <!--4 основных карты Player-4-->
-        
-            <ListBox Name="ListBoxP4_1" Grid.Column="14" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="2">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="{Binding NameP4_1}" />
-                        <Image Source="{Binding PictureP4_1}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <ListBox Name="ListBoxP4_2" Grid.Column="14" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="{Binding NameP4_2}" />
-                        <Image Source="{Binding PictureP4_2}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <ListBox Name="ListBoxP4_3" Grid.Column="14" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="{Binding NameP4_3}" />
-                        <Image Source="{Binding PictureP4_3}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <ListBox Name="ListBoxP4_4" Grid.Column="14" Grid.Row="10" Grid.ColumnSpan="2" Grid.RowSpan="2">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="{Binding NameP4_4}" />
-                        <Image Source="{Binding PictureP4_4}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <Image Name="D4" Grid.Column="12" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/baby.jpg" Visibility="Visible"></Image>
-        <Image Name="E4" Grid.Column="12" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/egg.jpg" Visibility="Visible"></Image>
-        <Label Name="LD4" Grid.Column="12" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Content="{Binding LD2}" Visibility="Visible"></Label>
-        <Label Name="ED4" Grid.Column="12" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Content="{Binding ED2}" Visibility="Visible"></Label>
-        <Image x:Name="Card41" Grid.Column="14" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
-        <Image x:Name="Card42" Grid.Column="14" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
-        <Image x:Name="Card43" Grid.Column="14" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
-        <Image x:Name="Card44" Grid.Column="14" Grid.Row="10" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
-        
         
         <!--4 основных карты Player-1-->
         <ListView Name="ListBoxP1_1" Grid.Column="4" Grid.Row="14" Grid.ColumnSpan="2" Grid.RowSpan="2">
@@ -244,6 +144,111 @@
         <Image x:Name="Card22" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
         <Image x:Name="Card23" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
         <Image x:Name="Card24" Grid.Column="0" Grid.Row="10" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
+
+        <!--4 основных карты + яйца, драконы Player-3-->
+        <ListBox Name="ListBoxP3_1" Grid.Column="4" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding NameP3_1}" />
+                        <Image Source="{Binding PictureP3_1}"/>
+                        <ContentControl Content="{Binding Image}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox Name="ListBoxP3_2" Grid.Column="6" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding NameP3_2}" />
+                        <Image Source="{Binding PictureP3_2}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox Name="ListBoxP3_3" Grid.Column="8" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding NameP3_3}" />
+                        <Image Source="{Binding PictureP3_3}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox Name="ListBoxP3_4" Grid.Column="10" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding NameP3_4}" />
+                        <Image Source="{Binding PictureP3_4}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Image Name="D3" Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/baby.jpg" Visibility="Visible"></Image>
+        <Image Name="E3" Grid.Column="8" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/egg.jpg" Visibility="Visible"></Image>
+        <Label Name="LD3" Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Visibility="Visible"></Label>
+        <Label Name="ED3" Grid.Column="8" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Visibility="Visible"></Label>
+        <Image x:Name="Card31" Grid.Column="4" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
+        <Image x:Name="Card32" Grid.Column="6" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
+        <Image x:Name="Card33" Grid.Column="8" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
+        <Image x:Name="Card34" Grid.Column="10" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
+
+
+        <!--4 основных карты Player-4-->
+
+        <ListBox Name="ListBoxP4_1" Grid.Column="14" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding NameP4_1}" />
+                        <Image Source="{Binding PictureP4_1}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox Name="ListBoxP4_2" Grid.Column="14" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding NameP4_2}" />
+                        <Image Source="{Binding PictureP4_2}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox Name="ListBoxP4_3" Grid.Column="14" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding NameP4_3}" />
+                        <Image Source="{Binding PictureP4_3}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox Name="ListBoxP4_4" Grid.Column="14" Grid.Row="10" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding NameP4_4}" />
+                        <Image Source="{Binding PictureP4_4}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Image Name="D4" Grid.Column="12" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/baby.jpg" Visibility="Visible"></Image>
+        <Image Name="E4" Grid.Column="12" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/egg.jpg" Visibility="Visible"></Image>
+        <Label Name="LD4" Grid.Column="12" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Content="{Binding LD2}" Visibility="Visible"></Label>
+        <Label Name="ED4" Grid.Column="12" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Content="{Binding ED2}" Visibility="Visible"></Label>
+        <Image x:Name="Card41" Grid.Column="14" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
+        <Image x:Name="Card42" Grid.Column="14" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
+        <Image x:Name="Card43" Grid.Column="14" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
+        <Image x:Name="Card44" Grid.Column="14" Grid.Row="10" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
+
+        
         
         <!--Карты на столе-->
         <!--Драконы-->

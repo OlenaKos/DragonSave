@@ -26,5 +26,17 @@ namespace DragonSave
         {
             
         }
+
+        public void PerformStep(Game game)
+        {
+            //Move counter of current gamer forvard
+            Game.CurrentGamer += 1;
+            if (Game.CurrentGamer > game.Gamers.Count - 1)
+            {
+                Game.CurrentGamer = 0;
+            }
+        }
+
+
     }
 }
