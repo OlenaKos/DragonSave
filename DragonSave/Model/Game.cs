@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DragonSave
 {
+
     class Game
     {
         public static int MoveCounter = 0;
@@ -25,11 +26,7 @@ namespace DragonSave
                 Gamers.Add(new Bot());
             }
             gameController.GiveCardsToGamers(Gamers, MainDeck);
-
-            for (int i = 0; i < Gamers.Count; i++)
-            {
-                gameController.DrawCards(Gamers[i]);
-            }
+            
 
         }
 

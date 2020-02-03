@@ -59,6 +59,7 @@
     <Compile Include="Controller\IActions.cs" />
     <Compile Include="Model\Bot.cs" />
     <Compile Include="Model\Card.cs" />
+    <Compile Include="Model\Combination.cs" />
     <Compile Include="Model\Deck.cs" />
     <Compile Include="Model\Dragon.cs" />
     <Compile Include="Model\Egg.cs" />

@@ -26,7 +26,7 @@ namespace DragonSave
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
     }
 }

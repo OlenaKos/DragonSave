@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DragonSave
 {
+
     class Gamer
     {
         public static string[] Names = new string[] { "James Bond", "Harry Potter", "Sara O'Connor", "Chuck Norris" };
@@ -18,6 +19,8 @@ namespace DragonSave
         public List<Card> GamerCards { set; get; }
         public List<Card> GamerEggs { get; set; }
         public List<Card> GamerDragons { get; set; }
+
+        public List<Combination>  GamerPossibleComb {get;set;}
         public Gamer()
         {
             GamerID = gamerCounter;
@@ -25,6 +28,7 @@ namespace DragonSave
             GamerEggs = new List<Card> { };
             GamerDragons = new List<Card> { };
             GamerCards = new List<Card> { };
+            GamerPossibleComb = new List<Combination>(4) { };
         }
 
         private string GetGamerName()

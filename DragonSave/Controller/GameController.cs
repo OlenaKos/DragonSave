@@ -20,12 +20,15 @@ namespace DragonSave
                     deck.deck.RemoveAt(0);
                 }
             }
-        }
 
-        public void DrawCards(Gamer gamer)
-        {
+            //check possible combinations for gamers
+            foreach (var gamer in gamers)
+            {
+                gamer.GamerPossibleComb = CheckPossibleCombinations(gamer);
+            }
             
         }
+
 
         public void PerformStep(Game game)
         {
@@ -35,8 +38,20 @@ namespace DragonSave
             {
                 Game.CurrentGamer = 0;
             }
+
+            //Generate list of possible combinations
+            game.Gamers[Game.CurrentGamer].GamerPossibleComb = CheckPossibleCombinations(game.Gamers[Game.CurrentGamer]);
         }
 
+        private List<Combination> CheckPossibleCombinations(Gamer gamer)
+        {
+            foreach (var comb in gamer.GamerPossibleComb)
+            {
+                //if IsPossible(comb) == true
+            }
 
+            return new List<Combination> { };
+
+        }
     }
 }

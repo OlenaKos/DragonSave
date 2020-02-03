@@ -32,7 +32,6 @@ namespace DragonSave
             InitializeComponent();
             controller = new Controller();
 
-
             LD1.Content = 0;
             ED1.Content = 0;          
             LD2.Content = 0;
@@ -41,7 +40,6 @@ namespace DragonSave
             ED3.Content = 0;
             LD4.Content = 0;
             ED4.Content = 0;
-
 
         }
 
@@ -77,13 +75,31 @@ namespace DragonSave
 
             ShowActionCards();
         }
+        private void endButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
 
         private void ShowActionCards()
         {
-            mmButton.Content = "Мама+Мама=\nМалыш (при наличии яйца)";
-            nmfButton.Content = "Мама+Папа+Гнездо=\nЯйцо";
-            ffButton.Content = "Папа+Папа=\nЗлодюжка (при нападении)";
-            villainButton.Content = "Злодюжка=\nСворовать яйцо";
+            //Show action cards
+            mmButton.Visibility =  Visibility.Visible;
+            nmfButton.Visibility = Visibility.Visible;
+            ffButton.Visibility = Visibility.Visible;
+            villainButton.Visibility = Visibility.Visible;
+
+            //Show information about current gamer
+            lbCurrentGamer.Visibility = Visibility.Visible;
+            lbCurrentGamerAmount.Visibility = Visibility.Visible;
+            lbCurrentGamerAmount.Content = Game.CurrentGamer;
+            lbDesiredGamersAmt.Visibility = Visibility.Hidden;
+            btnFour.Visibility = Visibility.Hidden;
+            btnThree.Visibility = Visibility.Hidden;
+            btnTwo.Visibility = Visibility.Hidden;
+
+            //Show EndGame
+            startButton.Visibility = Visibility.Hidden;
+            endButton.Visibility = Visibility.Visible;
         }
 
         private void DrawCards(Gamer gamer)

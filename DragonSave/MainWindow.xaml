@@ -297,18 +297,22 @@
         </ListBox>
 
         <Button x:Name="startButton" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Background="CornflowerBlue" Content="Start Game" Click="startButton_Click"></Button>
+        <Button x:Name="endButton" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Background="CornflowerBlue" Content="End Game"  Visibility ="Hidden"  Click="endButton_Click"></Button>
+        
         <Button x:Name="changeButton" Grid.Column="6" Grid.Row="10" Grid.ColumnSpan="4" FontSize="11" Background="CornflowerBlue" HorizontalContentAlignment="Stretch" Content="Обменять карты из колоды" Click="changeButton_Click"></Button>
-        <Button x:Name="mmButton" Grid.Column="12" Grid.Row="13" Grid.ColumnSpan="4"  FontSize="11" Background="DarkSeaGreen" HorizontalContentAlignment="Stretch" Click="mmButton_Click"></Button>
-        <Button x:Name="nmfButton" Grid.Column="12" Grid.Row="14" Grid.ColumnSpan="4" FontSize="11" Background="DarkSeaGreen" HorizontalContentAlignment="Stretch" Click="nmfButton_Click"></Button>
-
-        <Button x:Name="ffButton" Grid.Column="0" Grid.Row="14" Grid.ColumnSpan="4" FontSize="11" Background="Tomato" HorizontalContentAlignment="Stretch" Click="ffButton_Click"></Button>
-        <Button x:Name="villainButton" Grid.Column="0" Grid.Row="13" Grid.ColumnSpan="4" FontSize="11" Background="Tomato" HorizontalContentAlignment="Stretch" Click="villainButton_Click"></Button>
+        <Button x:Name="mmButton" Grid.Column="12" Grid.Row="13" Grid.ColumnSpan="4"  FontSize="11" Background="DarkSeaGreen" Visibility="Hidden" Content="Мама+Мама=\nМалыш (при наличии яйца)" HorizontalContentAlignment="Stretch" Click="mmButton_Click"></Button>
+        <Button x:Name="nmfButton" Grid.Column="12" Grid.Row="14" Grid.ColumnSpan="4" FontSize="11" Background="DarkSeaGreen" Visibility="Hidden" Content="Мама+Папа+Гнездо=\nЯйцо" HorizontalContentAlignment="Stretch" Click="nmfButton_Click"></Button>
+        <Button x:Name="ffButton" Grid.Column="0" Grid.Row="14" Grid.ColumnSpan="4" FontSize="11" Background="Tomato" Visibility="Hidden" Content="Папа+Папа=\nЗлодюжка (при нападении)" HorizontalContentAlignment="Stretch" Click="ffButton_Click"></Button>
+        <Button x:Name="villainButton" Grid.Column="0" Grid.Row="13" Grid.ColumnSpan="4" FontSize="11" Background="Tomato" Visibility="Hidden" Content="Злодюжка=\nСворовать яйцо" HorizontalContentAlignment="Stretch" Click="villainButton_Click"></Button>
+        
         <RadioButton GroupName="GamersAmount" x:Name="btnTwo" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" FontSize="11" Background="AliceBlue" HorizontalContentAlignment="Stretch" IsChecked="True">2</RadioButton>
         <RadioButton GroupName="GamersAmount" x:Name="btnThree" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="4" FontSize="11" Background="AliceBlue" HorizontalContentAlignment="Stretch" IsChecked="False">3</RadioButton>
         <RadioButton GroupName="GamersAmount" x:Name="btnFour" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="4" FontSize="11" Background="AliceBlue" HorizontalContentAlignment="Stretch" IsChecked="False">4</RadioButton>
-        <Label Content="Количество игроков:" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4"></Label>
-        <Label Content="Разрушение:" FontSize="17" Grid.Column="0" Grid.Row="12" Grid.ColumnSpan="4" Foreground="Tomato" FontWeight="Bold"></Label>
-        <Label Content="Созидание:" FontSize="17" Grid.Column="12" Grid.Row="12" Grid.ColumnSpan="4" Foreground="DarkSeaGreen" FontWeight="Bold"></Label>
+        <Label x:Name ="lbDesiredGamersAmt"  Content="Количество игроков:" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4"  ></Label>
+        <Label x:Name ="lbCurrentGamer" Content="Текущий игрок:" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4" Visibility="Hidden"></Label>
+        <Label x:Name ="lbCurrentGamerAmount" Content="Количество игроков:" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" Visibility="Hidden"></Label>
+        <Label Content="Разрушение:" FontSize="17" Grid.Column="0" Grid.Row="12" Grid.ColumnSpan="4" Foreground="Tomato" Visibility="Hidden" FontWeight="Bold"></Label>
+        <Label Content="Созидание:" FontSize="17" Grid.Column="12" Grid.Row="12" Grid.ColumnSpan="4" Foreground="DarkSeaGreen" Visibility="Hidden" FontWeight="Bold"></Label>
         
         <Button x:Name="Rules" Grid.Column="13" Grid.Row="0" Grid.ColumnSpan="3" FontSize="11" Background="Tomato" Click="Rules_Click">Правила игры</Button>
         <Button x:Name="Dev" Grid.Column="13" Grid.Row="1" Grid.ColumnSpan="3" FontSize="11" Background="Tomato" Click="Dev_Click">Разработчики</Button>
