@@ -10,7 +10,7 @@ namespace DragonSave
     {
         public Dragon()
         {
-            ImgSource = "/View/image/dragon.jpg";
+            ImgSource = "/View/image/Close1.gif";
         }
 
     }
