@@ -27,11 +27,9 @@ namespace DragonSave
         Game game;
         public static Uri myUri;
         public MainWindow()
-        {
-
+        {    
             InitializeComponent();
             controller = new Controller();
-
             LD1.Content = 0;
             ED1.Content = 0;          
             LD2.Content = 0;
@@ -40,7 +38,6 @@ namespace DragonSave
             ED3.Content = 0;
             LD4.Content = 0;
             ED4.Content = 0;
-
         }
 
         private void Rules_Click(object sender, RoutedEventArgs e)
@@ -64,13 +61,7 @@ namespace DragonSave
         }
 
         private void startButton_Click(object sender, RoutedEventArgs e)
-        {
-            Window1 window1 = new Window1();
-            window1.Show();
-            
-            this.Close();
-            
-
+        {           
             int gamersAmount = (btnFour.IsChecked == true) ? 4 : (btnThree.IsChecked == true) ? 3 : 2;
             game = controller.StartGame(gamersAmount);
 
@@ -199,6 +190,30 @@ namespace DragonSave
             controller.gamerController.UseVillainCombination(game, game.Gamers[0]);
         }
 
+        private void btnRegister_Click(object sender, RoutedEventArgs e)
+        {
+            string login;
+            string password;
+
+            if (txtLogin.Text != "" && txtPassword.Text != "")
+            {
+
+
+            }
+
+            else
+                MessageBox.Show("Written all fields");
+
+            //MainWindow mainWindow = new MainWindow();
+            //mainWindow.Show();
+            
+        }
+
+        private void btnRegister_Click_1(object sender, RoutedEventArgs e)
+        {
+            gridLoginPassword.Visibility = Visibility.Hidden;
+            gridGame.Visibility = Visibility.Visible;
+        }
     }
 
 }

@@ -10,7 +10,7 @@ namespace DragonSave
     {
         public Mother()
         {
-            ImgSource = "pack://application:,,,/View/image/mother.jpg";
+            ImgSource = "pack://application:,,,/View/image/Mother1.jpg";
         }
     }
 }
