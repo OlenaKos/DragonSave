@@ -50,8 +50,6 @@
         </Grid.RowDefinitions>
         
         
-
-        
         <!--4 основных карты Player-1-->
         <ListView Name="ListBoxP1_1" Grid.Column="4" Grid.Row="14" Grid.ColumnSpan="2" Grid.RowSpan="2">
         </ListView>

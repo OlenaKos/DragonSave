@@ -13,7 +13,7 @@
         <Label VerticalContentAlignment="Center" FontSize="19" Foreground="SeaGreen">
             <Label.Content>
                 <TextBlock FontStyle="Italic" FontWeight="DemiBold" TextWrapping="Wrap" Height="267">Разработка:
-                Костюк Елена, Юлия Гусак, Кривошея Сергей, (c) 2020 курс Dev{Education}, Basic C#</TextBlock>
+                Костюк Елена, Юлия Гусак, Розенберг Сергей(c) 2020 курс Dev{Education}, Basic C#</TextBlock>
             </Label.Content>
         </Label>
     </Grid>

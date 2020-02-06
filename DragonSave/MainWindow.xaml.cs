@@ -30,7 +30,7 @@ namespace DragonSave
         {
 
             InitializeComponent();
-            controller = new Controller();
+            
 
             LD1.Content = 0;
             ED1.Content = 0;          
@@ -65,6 +65,7 @@ namespace DragonSave
 
         private void startButton_Click(object sender, RoutedEventArgs e)
         {
+            controller = new Controller();
             int gamersAmount = (btnFour.IsChecked == true) ? 4 : (btnThree.IsChecked == true) ? 3 : 2;
             game = controller.StartGame(gamersAmount);
 
@@ -74,10 +75,11 @@ namespace DragonSave
             }
 
             ShowActionCards();
+            DisplayPossibleCombination(game.Gamers[Game.CurrentGamer]);
         }
         private void endButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void ShowActionCards()
@@ -169,17 +171,38 @@ namespace DragonSave
         }
         private void mmButton_Click(object sender, RoutedEventArgs e)
         {
-            if (controller.gamerController.IsMotherMotherCombinationAllowed(game.Gamers[Game.CurrentGamer]) == true)
-            {
-                controller.gamerController.UseMotherMotherCombination(game, game.Gamers[0]);
-                controller.gameController.PerformStep(game);
-            }
-            else
-            {
-                MakeAlertImpossibleCombination();
-            }
+            controller.gamerController.UseMotherMotherCombination(game, game.Gamers[0]);
+            controller.gameController.PerformStep(game);
+
+            DisplayPossibleCombination(game.Gamers[Game.CurrentGamer]);
             
         }
+
+        private void DisplayPossibleCombination(Gamer gamer)
+        {
+            ffButton.Visibility = Visibility.Hidden;
+            nmfButton.Visibility = Visibility.Hidden;
+            mmButton.Visibility = Visibility.Hidden;
+            villainButton.Visibility = Visibility.Hidden;
+            if (gamer.GamerPossibleComb.Contains(Combinations.FatherFather) == true)
+            {
+                ffButton.Visibility = Visibility.Visible;
+            }
+            if (gamer.GamerPossibleComb.Contains(Combinations.MotherFatherNest) == true)
+            {
+                nmfButton.Visibility = Visibility.Visible;
+            }
+            if (gamer.GamerPossibleComb.Contains(Combinations.MotherMother) == true)
+            {
+                mmButton.Visibility = Visibility.Visible;
+            }
+            if (gamer.GamerPossibleComb.Contains(Combinations.Villain) == true)
+            {
+                villainButton.Visibility = Visibility.Visible;
+            }
+
+        }
+
         private void nmfButton_Click(object sender, RoutedEventArgs e)
         {
             controller.gamerController.UseNestMotherFatherCombination(game, game.Gamers[0]);

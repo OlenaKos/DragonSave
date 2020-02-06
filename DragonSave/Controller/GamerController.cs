@@ -77,6 +77,58 @@ namespace DragonSave
             throw new NotImplementedException();
         }
 
+        public void CheckPossibleCombinations(Gamer gamer)
+        {
+            List<Combinations> allComb = new List<Combinations>() { Combinations.FatherFather,
+                Combinations.MotherFatherNest, Combinations.MotherMother,
+                Combinations.Villain };
+
+            foreach (var comb in allComb)
+            {
+                if (IsPossibleCombination(comb, gamer) == true)
+                {
+                    gamer.GamerPossibleComb.Add(comb);
+                }
+            }
+
+        }
+
+        private bool IsPossibleCombination(Combinations comb, Gamer gamer)
+        {
+            bool IsPossibleComb = false;
+
+            switch (comb)
+            {
+                case Combinations.FatherFather:
+                    {
+                        IsPossibleComb = IsFatherFatherCombinationAllowed(gamer);
+                        break;
+                    }
+
+                case Combinations.MotherFatherNest:
+                    {
+                        IsPossibleComb = IsMotherFatherNestCombinationAllowed(gamer);
+                        break;
+                    }
+
+                case Combinations.MotherMother:
+                    {
+                        IsPossibleComb = IsMotherMotherCombinationAllowed(gamer);
+                        break;
+                    }
+                case Combinations.Villain:
+                    {
+                        IsPossibleComb = IsVillainCombinationAllowed(gamer);
+                        break;
+                    }
+                default:
+                    {
+                        break;
+                    }
+            }
+            return IsPossibleComb;
+        }
+
         public bool IsMotherMotherCombinationAllowed(Gamer gamer)
         {
             bool res = false;
@@ -85,11 +137,83 @@ namespace DragonSave
             {
                 if (card is Mother)
                 {
-                    motherCounter++; 
+                    motherCounter++;
                 }
             }
 
             if (motherCounter >= 2)
+            {
+                res = true;
+            }
+
+            return res;
+        }
+
+
+
+        public bool IsFatherFatherCombinationAllowed(Gamer gamer)
+        {
+            bool res = false;
+            int fatherCounter = 0;
+            foreach (var card in gamer.GamerCards)
+            {
+                if (card is Father)
+                {
+                    fatherCounter++;
+                }
+            }
+
+            if (fatherCounter >= 2)
+            {
+                res = true;
+            }
+
+            return res;
+        }
+
+        public bool IsMotherFatherNestCombinationAllowed(Gamer gamer)
+        {
+            bool res = false;
+            int motherCounter = 0;
+            int fatherCounter = 0;
+            int nestCounter = 0;
+            foreach (var card in gamer.GamerCards)
+            {
+                if (card is Father)
+                {
+                    fatherCounter++;
+                }
+                if (card is Mother)
+                {
+                    motherCounter++;
+                }
+                if (card is Nest)
+                {
+                    nestCounter++;
+                }
+            }
+
+            if ((fatherCounter>=1) &&(motherCounter >= 1) &&(nestCounter >= 1))
+            {
+                res = true;
+            }
+
+            return res;
+        }
+
+        public bool IsVillainCombinationAllowed(Gamer gamer)
+        {
+            bool res = false;
+            int villainCounter = 0;
+            foreach (var card in gamer.GamerCards)
+            {
+                if (card is Villain)
+                {
+                    villainCounter++;
+                }
+            }
+            
+            if (villainCounter >= 1)
             {
                 res = true;
             }

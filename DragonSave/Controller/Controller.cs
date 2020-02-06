@@ -17,7 +17,7 @@ namespace DragonSave
         }
         public Game StartGame(int gamersCount)
         {
-            Game game = new Game(gamersCount, this.gameController);
+            Game game = new Game(gamersCount, this);
             return game;
         }
     }

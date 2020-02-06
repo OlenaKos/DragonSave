@@ -6,17 +6,15 @@ using System.Threading.Tasks;
 
 namespace DragonSave
 {
-    enum Combinations
-    {
-        MotherMother,
-        FatherFather,
-        MotherFatherNest,
-        Villain
-
+    enum Combinations { 
+     FatherFather, 
+     MotherFatherNest, 
+     MotherMother,
+     Villain
+    
     }
     class Combination
     {
-        public Combinations Name { set; get; }
-        public bool IsCombPossible { set; get; }
+
     }
 }

@@ -15,7 +15,9 @@ namespace DragonSave
         public List<Gamer> Gamers { get; set; }
         public Deck MainDeck { set; get; }
 
-        public Game(int GamersCount, GameController gameController)
+        public Controller controller { get; set; }
+
+        public Game(int GamersCount, Controller control)
         {
             MainDeck = new Deck();
             CurrentGamer = 0;
@@ -25,7 +27,9 @@ namespace DragonSave
             {
                 Gamers.Add(new Bot());
             }
-            gameController.GiveCardsToGamers(Gamers, MainDeck);
+            controller = control;
+            controller.gameController.GiveCardsToGamers(this, MainDeck);
+            controller.gamerController.CheckPossibleCombinations(Gamers[0]);
             
 
         }

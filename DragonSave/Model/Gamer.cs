@@ -20,7 +20,7 @@ namespace DragonSave
         public List<Card> GamerEggs { get; set; }
         public List<Card> GamerDragons { get; set; }
 
-        public List<Combination>  GamerPossibleComb {get;set;}
+        public List<Combinations>  GamerPossibleComb {get;set;}
         public Gamer()
         {
             GamerID = gamerCounter;
@@ -28,7 +28,7 @@ namespace DragonSave
             GamerEggs = new List<Card> { };
             GamerDragons = new List<Card> { };
             GamerCards = new List<Card> { };
-            GamerPossibleComb = new List<Combination>(4) { };
+            GamerPossibleComb = new List<Combinations>() { };
         }
 
         private string GetGamerName()

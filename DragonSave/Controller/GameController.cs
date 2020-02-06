@@ -9,22 +9,16 @@ namespace DragonSave
     class GameController
     {
 
-        public void GiveCardsToGamers(List<Gamer> gamers, Deck deck)
+        public void GiveCardsToGamers(Game game, Deck deck)
         {
             int AmountCardsToGive = 4;
-            foreach (var gamer in gamers)
+            foreach (var gamer in game.Gamers)
             {
                 for (int i = 0; i < AmountCardsToGive; i++)
                 {
                     gamer.GamerCards.Add(deck.deck[0]);
                     deck.deck.RemoveAt(0);
                 }
-            }
-
-            //check possible combinations for gamers
-            foreach (var gamer in gamers)
-            {
-                gamer.GamerPossibleComb = CheckPossibleCombinations(gamer);
             }
             
         }
@@ -39,19 +33,14 @@ namespace DragonSave
                 Game.CurrentGamer = 0;
             }
 
+            game.controller.gamerController.CheckPossibleCombinations(game.Gamers[Game.CurrentGamer]);
             //Generate list of possible combinations
-            game.Gamers[Game.CurrentGamer].GamerPossibleComb = CheckPossibleCombinations(game.Gamers[Game.CurrentGamer]);
-        }
 
-        private List<Combination> CheckPossibleCombinations(Gamer gamer)
-        {
-            foreach (var comb in gamer.GamerPossibleComb)
-            {
-                //if IsPossible(comb) == true
-            }
 
-            return new List<Combination> { };
+            //display possible configuration
 
         }
+
+  
     }
 }
