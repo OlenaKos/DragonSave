@@ -74,6 +74,9 @@
       <DependentUpon>ImpossibleCombinationAlert.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Rules.xaml.cs" />
+    <Compile Include="Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
+    </Compile>
     <Page Include="View\Developers.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -98,6 +101,10 @@
     <Page Include="View\Rules.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Window1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -138,6 +145,16 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="View\image\empty.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\image\Child.JPG" />
+    <Resource Include="View\image\Close.GIF" />
+    <Resource Include="View\image\Eg.JPG" />
+    <Resource Include="View\image\Father.PNG" />
+    <Resource Include="View\image\Vor.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\image\fon.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

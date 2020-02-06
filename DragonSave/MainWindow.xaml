@@ -8,7 +8,7 @@
         Title="DragonSave" Height="600" Width="600">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/View/image/bg.jpg" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/View/image/fon.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -85,14 +85,14 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Image x:Name="D1" Grid.Column="6" Grid.Row="12" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/baby.jpg" Visibility="Visible"></Image>
-        <Image Name="E1" Grid.Column="8" Grid.Row="12" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/egg.jpg" Visibility="Visible"></Image>
+        <Image x:Name="D1" Grid.Column="6" Grid.Row="12" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Child.JPG" Visibility="Visible"></Image>
+        <Image Name="E1" Grid.Column="8" Grid.Row="12" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Eg.JPG" Visibility="Visible"></Image>
         <Label Name="LD1" Grid.Column="6" Grid.Row="12" Grid.ColumnSpan="2" Grid.RowSpan="2" Content="{Binding LD3}" Visibility="Visible"></Label>
         <Label Name="ED1" Grid.Column="8" Grid.Row="12" Grid.ColumnSpan="2" Grid.RowSpan="2" Content="{Binding ED3}" Visibility="Visible"></Label>
-        <Image x:Name="Card11" Grid.Column="4" Grid.Row="14" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
-        <Image x:Name="Card12" Grid.Column="6" Grid.Row="14" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
-        <Image x:Name="Card13" Grid.Column="8" Grid.Row="14" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
-        <Image x:Name="Card14" Grid.Column="10" Grid.Row="14" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
+        <Image x:Name="Card11" Grid.Column="4" Grid.Row="14" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Close.GIF" Visibility="Visible"></Image>
+        <Image x:Name="Card12" Grid.Column="6" Grid.Row="14" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Close.GIF" Visibility="Visible"></Image>
+        <Image x:Name="Card13" Grid.Column="8" Grid.Row="14" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Close.GIF" Visibility="Visible"></Image>
+        <Image x:Name="Card14" Grid.Column="10" Grid.Row="14" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Close.GIF" Visibility="Visible"></Image>
         
         
         <!--4 основных карты Player-2-->        
@@ -136,14 +136,14 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Image Name="D2" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/baby.jpg" Visibility="Visible"></Image>
-        <Image Name="E2" Grid.Column="2" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/egg.jpg" Visibility="Visible"></Image>
+        <Image Name="D2" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Child.JPG" Visibility="Visible"></Image>
+        <Image Name="E2" Grid.Column="2" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Eg.JPG" Visibility="Visible"></Image>
         <Label Name="LD2" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Content="{Binding LD2}" Visibility="Visible"></Label>
         <Label Name="ED2" Grid.Column="2" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Content="{Binding ED2}" Visibility="Visible"></Label>
-        <Image x:Name="Card21" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
-        <Image x:Name="Card22" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
-        <Image x:Name="Card23" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
-        <Image x:Name="Card24" Grid.Column="0" Grid.Row="10" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
+        <Image x:Name="Card21" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Close.GIF" Visibility="Visible"></Image>
+        <Image x:Name="Card22" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Close.GIF" Visibility="Visible"></Image>
+        <Image x:Name="Card23" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Close.GIF" Visibility="Visible"></Image>
+        <Image x:Name="Card24" Grid.Column="0" Grid.Row="10" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Close.GIF" Visibility="Visible"></Image>
 
         <!--4 основных карты + яйца, драконы Player-3-->
         <ListBox Name="ListBoxP3_1" Grid.Column="4" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
@@ -187,14 +187,14 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Image Name="D3" Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/baby.jpg" Visibility="Visible"></Image>
-        <Image Name="E3" Grid.Column="8" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/egg.jpg" Visibility="Visible"></Image>
+        <Image Name="D3" Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Child.JPG" Visibility="Visible"></Image>
+        <Image Name="E3" Grid.Column="8" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Eg.JPG" Visibility="Visible"></Image>
         <Label Name="LD3" Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Visibility="Visible"></Label>
         <Label Name="ED3" Grid.Column="8" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Visibility="Visible"></Label>
-        <Image x:Name="Card31" Grid.Column="4" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
-        <Image x:Name="Card32" Grid.Column="6" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
-        <Image x:Name="Card33" Grid.Column="8" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
-        <Image x:Name="Card34" Grid.Column="10" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
+        <Image x:Name="Card31" Grid.Column="4" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Close.GIF" Visibility="Visible"></Image>
+        <Image x:Name="Card32" Grid.Column="6" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Close.GIF" Visibility="Visible"></Image>
+        <Image x:Name="Card33" Grid.Column="8" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Close.GIF" Visibility="Visible"></Image>
+        <Image x:Name="Card34" Grid.Column="10" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Close.GIF" Visibility="Visible"></Image>
 
 
         <!--4 основных карты Player-4-->
@@ -239,14 +239,14 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Image Name="D4" Grid.Column="12" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/baby.jpg" Visibility="Visible"></Image>
-        <Image Name="E4" Grid.Column="12" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/egg.jpg" Visibility="Visible"></Image>
+        <Image Name="D4" Grid.Column="12" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Child.JPG" Visibility="Visible"></Image>
+        <Image Name="E4" Grid.Column="12" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Eg.JPG" Visibility="Visible"></Image>
         <Label Name="LD4" Grid.Column="12" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Content="{Binding LD2}" Visibility="Visible"></Label>
         <Label Name="ED4" Grid.Column="12" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Content="{Binding ED2}" Visibility="Visible"></Label>
-        <Image x:Name="Card41" Grid.Column="14" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
-        <Image x:Name="Card42" Grid.Column="14" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
-        <Image x:Name="Card43" Grid.Column="14" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
-        <Image x:Name="Card44" Grid.Column="14" Grid.Row="10" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/empty.jpg" Visibility="Visible"></Image>
+        <Image x:Name="Card41" Grid.Column="14" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Close.GIF" Visibility="Visible"></Image>
+        <Image x:Name="Card42" Grid.Column="14" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Close.GIF" Visibility="Visible"></Image>
+        <Image x:Name="Card43" Grid.Column="14" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Close.GIF" Visibility="Visible"></Image>
+        <Image x:Name="Card44" Grid.Column="14" Grid.Row="10" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Close.GIF" Visibility="Visible"></Image>
 
         
         
@@ -314,8 +314,8 @@
         <Label Content="Разрушение:" FontSize="17" Grid.Column="0" Grid.Row="12" Grid.ColumnSpan="4" Foreground="Tomato" Visibility="Hidden" FontWeight="Bold"></Label>
         <Label Content="Созидание:" FontSize="17" Grid.Column="12" Grid.Row="12" Grid.ColumnSpan="4" Foreground="DarkSeaGreen" Visibility="Hidden" FontWeight="Bold"></Label>
         
-        <Button x:Name="Rules" Grid.Column="13" Grid.Row="0" Grid.ColumnSpan="3" FontSize="11" Background="Tomato" Click="Rules_Click">Правила игры</Button>
-        <Button x:Name="Dev" Grid.Column="13" Grid.Row="1" Grid.ColumnSpan="3" FontSize="11" Background="Tomato" Click="Dev_Click">Разработчики</Button>
+        <Button x:Name="Rules" Grid.Column="13" Grid.Row="0" Grid.ColumnSpan="3" FontSize="11" Background="LightBlue" Click="Rules_Click">Правила игры</Button>
+        <Button x:Name="Dev" Grid.Column="13" Grid.Row="1" Grid.ColumnSpan="3" FontSize="11" Background="LightBlue" Click="Dev_Click">Разработчики</Button>
 
     </Grid>
 </Window>

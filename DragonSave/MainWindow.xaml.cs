@@ -65,6 +65,12 @@ namespace DragonSave
 
         private void startButton_Click(object sender, RoutedEventArgs e)
         {
+            Window1 window1 = new Window1();
+            window1.Show();
+            
+            this.Close();
+            
+
             int gamersAmount = (btnFour.IsChecked == true) ? 4 : (btnThree.IsChecked == true) ? 3 : 2;
             game = controller.StartGame(gamersAmount);
 

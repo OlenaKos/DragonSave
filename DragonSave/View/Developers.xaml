@@ -8,7 +8,7 @@
         Title="Developers" Height="300" Width="300">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/View/image/bg.jpg" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/View/image/fon.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Label VerticalContentAlignment="Center" FontSize="19" Foreground="SeaGreen">
             <Label.Content>
