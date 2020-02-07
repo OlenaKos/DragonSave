@@ -19,7 +19,8 @@ namespace DragonSave
 
         public static void WritenFile(Person person)
         {
-            person = File.Exists("person.json") ? JsonConvert.DeserializeObject<Person>(File.ReadAllText("person.json")) : new Person();
+            // person = File.Exists("person.json") ? JsonConvert.DeserializeObject<Person>(File.ReadAllText("person.json")) : new Person();
+            File.Exists("person.json");
             File.WriteAllText("person.json", JsonConvert.SerializeObject(person));
 
             //string jsonDate = JsonConvert.SerializeObject(person);
