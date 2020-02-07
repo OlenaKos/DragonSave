@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Newtonsoft.Json;
 
 namespace DragonSave
 {
@@ -26,9 +28,10 @@ namespace DragonSave
         Controller controller;
         Game game;
         public static Uri myUri;
+        
+        Person person = new Person();
         public MainWindow()
-        {
-
+        {    
             InitializeComponent();
             
 
@@ -40,7 +43,6 @@ namespace DragonSave
             ED3.Content = 0;
             LD4.Content = 0;
             ED4.Content = 0;
-
         }
 
         private void Rules_Click(object sender, RoutedEventArgs e)
@@ -66,6 +68,7 @@ namespace DragonSave
         private void startButton_Click(object sender, RoutedEventArgs e)
         {
             controller = new Controller();
+            
             int gamersAmount = (btnFour.IsChecked == true) ? 4 : (btnThree.IsChecked == true) ? 3 : 2;
             game = controller.StartGame(gamersAmount);
 
@@ -214,8 +217,45 @@ namespace DragonSave
         private void villainButton_Click(object sender, RoutedEventArgs e)
         {
             controller.gamerController.UseVillainCombination(game, game.Gamers[0]);
-        }
+        }        
 
+        private void btnRegister_Click_1(object sender, RoutedEventArgs e)
+        {
+            
+
+            if (txtLogin.Text == "" || txtPassword.Text == "")
+            {
+                btnRegister.IsEnabled = false;
+                MessageBox.Show("Written all fields");
+                txtLogin.Text += "";
+                txtPassword.Text += "";  
+            }
+            else if(txtLogin.Text != "" || txtPassword.Text != "")
+            {                
+                btnRegister.IsEnabled = true;
+                person.login = txtLogin.Text;
+                person.password = txtPassword.Text;
+                switch (PasswordStrengthCheker.GetPasswordStrength(person.password))
+                {
+                    case 1:
+                    case 2:
+                    case 3:
+                        MessageBox.Show("Is not good password");
+                        break;
+                    case 4:
+                        MessageBox.Show("Is good password");
+                        break;
+                    case 5:
+                        MessageBox.Show("Is very good password");
+                        break;
+                }
+
+                Person.WritenFile(person);
+                gridLoginPassword.Visibility = Visibility.Hidden;
+                gridGame.Visibility = Visibility.Visible;
+            }
+            
+        }
     }
 
 }
