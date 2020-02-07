@@ -8,6 +8,8 @@ namespace DragonSave
 {
     class GamerController : IActions
     {
+        public delegate bool PossibleCombDelegate(Gamer gamer);
+        //public static PossibleCombDelegate IsPossibleComb;
         public List<Card> GetCardFromDeck(Gamer gamer, Deck cardDeck, int cardCount)
         {
             List<Card> cards = new List<Card> { };
@@ -95,30 +97,31 @@ namespace DragonSave
 
         private bool IsPossibleCombination(Combinations comb, Gamer gamer)
         {
-            bool IsPossibleComb = false;
+            PossibleCombDelegate IsPossibleComb = IsFatherFatherCombinationAllowed;
+            //bool IsPossibleComb = false;
 
             switch (comb)
             {
                 case Combinations.FatherFather:
                     {
-                        IsPossibleComb = IsFatherFatherCombinationAllowed(gamer);
+                        IsPossibleComb = IsFatherFatherCombinationAllowed;
                         break;
                     }
 
                 case Combinations.MotherFatherNest:
                     {
-                        IsPossibleComb = IsMotherFatherNestCombinationAllowed(gamer);
+                        IsPossibleComb = IsMotherFatherNestCombinationAllowed;
                         break;
                     }
 
                 case Combinations.MotherMother:
                     {
-                        IsPossibleComb = IsMotherMotherCombinationAllowed(gamer);
+                        IsPossibleComb = IsMotherMotherCombinationAllowed;
                         break;
                     }
                 case Combinations.Villain:
                     {
-                        IsPossibleComb = IsVillainCombinationAllowed(gamer);
+                        IsPossibleComb = IsVillainCombinationAllowed;
                         break;
                     }
                 default:
@@ -126,7 +129,7 @@ namespace DragonSave
                         break;
                     }
             }
-            return IsPossibleComb;
+            return IsPossibleComb(gamer);
         }
 
         public bool IsMotherMotherCombinationAllowed(Gamer gamer)
@@ -149,9 +152,7 @@ namespace DragonSave
             return res;
         }
 
-
-
-        public bool IsFatherFatherCombinationAllowed(Gamer gamer)
+        public static bool IsFatherFatherCombinationAllowed(Gamer gamer)
         {
             bool res = false;
             int fatherCounter = 0;
