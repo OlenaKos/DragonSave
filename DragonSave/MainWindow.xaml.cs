@@ -98,9 +98,9 @@ namespace DragonSave
         {
             game.UseMotherMotherCombination();
             DrawGamerInformation();
-            
+
             game.PerformStep();
-            DrawGamerInformation();
+            DrawGamerInformation();    
 
         }
         private void nmfButton_Click(object sender, RoutedEventArgs e)
@@ -201,6 +201,50 @@ namespace DragonSave
                     break;
             }
         }
+
+        private void DrawMarkOnCards(Gamer gamer, double opacityValue)
+        {
+            switch (gamer.GamerID)
+            {
+                case 0:
+                    {
+
+                        Card11.Opacity = opacityValue;
+                        Card12.Opacity = opacityValue;
+                        Card13.Opacity = opacityValue;
+                        Card14.Opacity = opacityValue;
+                        break;
+                    }
+                case 1:
+                    {
+                        Card21.Opacity = opacityValue;
+                        Card22.Opacity = opacityValue;
+                        Card23.Opacity = opacityValue;
+                        Card24.Opacity = opacityValue;
+                        break;
+                    }
+                case 2:
+                    {
+                        Card31.Opacity = opacityValue;
+                        Card32.Opacity = opacityValue;
+                        Card33.Opacity = opacityValue;
+                        Card34.Opacity = opacityValue;
+                        break;
+
+                    }
+                case 3:
+                    {
+                        Card41.Opacity = opacityValue;
+                        Card42.Opacity = opacityValue;
+                        Card43.Opacity = opacityValue;
+                        Card44.Opacity = opacityValue;
+                        break;
+                    }
+                default:
+                    break;
+            }
+        }
+
         private void DrawEndGame()
         {
             //Show EndGame
@@ -220,6 +264,20 @@ namespace DragonSave
 
             //Draw Gamer eggs and dragons
             DrawEggsDragonsCards(game.Gamers[Game.CurrentGamer]);
+
+            //disable cards of all gamers except of current
+            for (int i = 0; i < game.Gamers.Count; i++)
+            {
+                if (i == Game.CurrentGamer)
+                {
+                    DrawMarkOnCards(game.Gamers[Game.CurrentGamer], 1);//enabling current gamer cards
+                }
+                else
+                {
+                    DrawMarkOnCards(game.Gamers[i], 0.7); //disabling all other gamers
+                }
+            }
+            
         }
         private void DrawCurrentGamerInfo()
         {
