@@ -329,7 +329,7 @@
             <Label x:Name="labelPassword" Content="Enter password:" HorizontalAlignment="Left" Margin="56,219,0,0" VerticalAlignment="Top" Width="207" Grid.Column="1" Foreground="White" RenderTransformOrigin="1.004,3.228" FontSize="28"/>
             <TextBox x:Name="txtLogin" HorizontalAlignment="Left" Height="62" Margin="291,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="264" FontSize="28" Background="Beige" Grid.Column="1" />
             <TextBox x:Name="txtPassword" HorizontalAlignment="Left" Height="62" Margin="291,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="264" Background="Beige" Grid.Column="1" FontSize="28"/>
-            <Button x:Name="btnRegister" Content="To register" Padding="5,5,5,5" FontSize="28" Grid.Column="1" HorizontalAlignment="Left" Margin="169,332,0,0" VerticalAlignment="Top" Width="260" Height="58" Click="btnRegister_Click"/>
+            <Button x:Name="btnRegister" Content="Login" Padding="5,5,5,5" FontSize="28" Grid.Column="1" HorizontalAlignment="Left" Margin="169,332,0,0" VerticalAlignment="Top" Width="260" Height="58" Click="btnRegister_Click"/>
 
         </Grid>
 

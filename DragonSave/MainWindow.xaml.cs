@@ -25,14 +25,11 @@ namespace DragonSave
     public partial class MainWindow : Window
     {
         Game game;
-        public static Uri myUri;
-        Person person = new Person();
+        public Uri myUri;
+        public Person person;
         public MainWindow()
         {    
             InitializeComponent();
-            
-
-
         }
 
         //main buttons click
@@ -49,7 +46,7 @@ namespace DragonSave
             ED4.Content = 0;
 
 
-
+            //start game
             int gamersAmount = (btnFour.IsChecked == true) ? 4 : (btnThree.IsChecked == true) ? 3 : 2;
             game = new Game(gamersAmount);
 
@@ -69,6 +66,7 @@ namespace DragonSave
         }
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
+            person = new Person();
 
             if (txtLogin.Text == "" || txtPassword.Text == "")
             {
@@ -225,7 +223,6 @@ namespace DragonSave
             //Draw Gamer eggs and dragons
             DrawEggsDragonsCards(game.Gamers[Game.CurrentGamer]);
         }
-
         private void DrawCurrentGamerInfo()
         {
             //Draw information about current gamer
@@ -237,7 +234,6 @@ namespace DragonSave
             btnThree.Visibility = Visibility.Hidden;
             btnTwo.Visibility = Visibility.Hidden;
         }
-
         private void DrawEggsDragonsCards(Gamer gamer)
         {
             switch (gamer.GamerID)
@@ -305,7 +301,6 @@ namespace DragonSave
                     break;
             }
         }
-
         private void DrawPossibleCombination(Gamer gamer)
         {
             changeButton.Visibility = Visibility.Visible;

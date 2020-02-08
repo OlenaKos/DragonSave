@@ -32,7 +32,7 @@ namespace DragonSave
 
         private string GetGamerName()
         {
-            string Name = Names[gamerCounter];
+            string Name = gamerCounter == 0 ? "" : Names[gamerCounter];
             gamerCounter++;
             if (gamerCounter > Names.Length - 1)
                 gamerCounter = 0;
