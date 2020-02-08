@@ -45,7 +45,6 @@ namespace DragonSave
             LD4.Content = 0;
             ED4.Content = 0;
 
-            
             //start game
             int gamersAmount = (btnFour.IsChecked == true) ? 4 : (btnThree.IsChecked == true) ? 3 : 2;
             game = new Game(gamersAmount);
@@ -55,7 +54,6 @@ namespace DragonSave
             {
                 DrawCards(gamer);
             }
-
             DrawGamerInformation();
             DrawEndGame();
             DrawPossibleCombination(game.Gamers[Game.CurrentGamer]);
@@ -68,16 +66,16 @@ namespace DragonSave
         {
             person = new Person();
 
-            if (txtLogin.Text == "" || txtPassword.Text == "")
+            if (txtLogin.Text == "")
             {
-                btnRegister.IsEnabled = false;
-                MessageBox.Show("Written all fields");
-                txtLogin.Text += "";
-                txtPassword.Text += "";
+                MessageBox.Show("Enter a login please");
             }
-            else if (txtLogin.Text != "" || txtPassword.Text != "")
+            else if (txtPassword.Text == "")
             {
-                btnRegister.IsEnabled = true;
+                MessageBox.Show("Enter a password please");
+            }
+            else
+            {
                 person.login = txtLogin.Text;
                 person.password = txtPassword.Text;
                 Person.WritenFile(person);

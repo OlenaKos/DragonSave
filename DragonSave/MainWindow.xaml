@@ -309,7 +309,7 @@
             <RadioButton GroupName="GamersAmount" x:Name="btnFour" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="4" FontSize="11" Background="AliceBlue" HorizontalContentAlignment="Stretch" IsChecked="False">4</RadioButton>
             <Label x:Name ="lbDesiredGamersAmt"  Content="Количество игроков:" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4"  ></Label>
             <Label x:Name ="lbCurrentGamer" Content="Текущий игрок:" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4" Visibility="Hidden"></Label>
-            <Label x:Name ="lbCurrentGamerAmount" Content="Количество игроков:" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" Visibility="Hidden"></Label>
+            <Label x:Name ="lbCurrentGamerAmount" FontSize="17" Content="Количество игроков:" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" Visibility="Hidden"></Label>
             <Label Content="Разрушение:" FontSize="17" Grid.Column="0" Grid.Row="12" Grid.ColumnSpan="4" Foreground="Tomato" Visibility="Hidden" FontWeight="Bold"></Label>
             <Label Content="Созидание:" FontSize="17" Grid.Column="12" Grid.Row="12" Grid.ColumnSpan="4" Foreground="DarkSeaGreen" Visibility="Hidden" FontWeight="Bold"></Label>
 

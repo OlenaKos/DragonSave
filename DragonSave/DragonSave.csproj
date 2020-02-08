@@ -77,8 +77,8 @@
     <Compile Include="Model\Nest.cs" />
     <Compile Include="Model\RealGamer.cs" />
     <Compile Include="Model\Villain.cs" />
-    <Compile Include="PasswordStrengthCheker.cs" />
-    <Compile Include="Person.cs" />
+    <Compile Include="Model\PasswordStrengthCheker.cs" />
+    <Compile Include="Model\Person.cs" />
     <Compile Include="View\ImpossibleCombinationAlert.xaml.cs">
       <DependentUpon>ImpossibleCombinationAlert.xaml</DependentUpon>
     </Compile>
