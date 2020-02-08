@@ -26,7 +26,7 @@ namespace DragonSave
     {
         Game game;
         public Uri myUri;
-        public Person person;
+        public static Person person;
         public MainWindow()
         {    
             InitializeComponent();
@@ -45,7 +45,7 @@ namespace DragonSave
             LD4.Content = 0;
             ED4.Content = 0;
 
-
+            
             //start game
             int gamersAmount = (btnFour.IsChecked == true) ? 4 : (btnThree.IsChecked == true) ? 3 : 2;
             game = new Game(gamersAmount);
