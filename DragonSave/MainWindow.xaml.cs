@@ -20,31 +20,119 @@ namespace DragonSave
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-
     
 
     public partial class MainWindow : Window
     {
-        Controller controller;
         Game game;
         public static Uri myUri;
-        
         Person person = new Person();
         public MainWindow()
         {    
             InitializeComponent();
             
 
+
+        }
+
+        //main buttons click
+        private void startButton_Click(object sender, RoutedEventArgs e)
+        {
+            //fill content eggs and dragons             
             LD1.Content = 0;
-            ED1.Content = 0;          
+            ED1.Content = 0;
             LD2.Content = 0;
             ED2.Content = 0;
             LD3.Content = 0;
             ED3.Content = 0;
             LD4.Content = 0;
             ED4.Content = 0;
+
+
+
+            int gamersAmount = (btnFour.IsChecked == true) ? 4 : (btnThree.IsChecked == true) ? 3 : 2;
+            game = new Game(gamersAmount);
+
+            //draw
+            foreach (var gamer in game.Gamers)
+            {
+                DrawCards(gamer);
+            }
+
+            DrawGamerInformation();
+            DrawEndGame();
+            DrawPossibleCombination(game.Gamers[Game.CurrentGamer]);
+        }
+        private void endButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+        private void btnRegister_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (txtLogin.Text == "" || txtPassword.Text == "")
+            {
+                btnRegister.IsEnabled = false;
+                MessageBox.Show("Written all fields");
+                txtLogin.Text += "";
+                txtPassword.Text += "";
+            }
+            else if (txtLogin.Text != "" || txtPassword.Text != "")
+            {
+                btnRegister.IsEnabled = true;
+                person.login = txtLogin.Text;
+                person.password = txtPassword.Text;
+                Person.WritenFile(person);
+                gridLoginPassword.Visibility = Visibility.Hidden;
+                gridGame.Visibility = Visibility.Visible;
+            }
+
         }
 
+        //button clicks
+        private void changeButton_Click(object sender, RoutedEventArgs e)
+        {
+            game.UseThrowCardCombination(0);
+            DrawGamerInformation();
+
+            game.PerformStep();
+            DrawGamerInformation();
+        }
+        private void mmButton_Click(object sender, RoutedEventArgs e)
+        {
+            game.UseMotherMotherCombination();
+            DrawGamerInformation();
+            
+            game.PerformStep();
+            DrawGamerInformation();
+
+        }
+        private void nmfButton_Click(object sender, RoutedEventArgs e)
+        {
+            game.UseNestMotherFatherCombination();
+            DrawGamerInformation();
+
+            game.PerformStep();
+            DrawGamerInformation();
+        }
+        private void ffButton_Click(object sender, RoutedEventArgs e)
+        {
+            game.UseFatherFatherCombination();
+            DrawGamerInformation();
+
+            game.PerformStep();
+            DrawGamerInformation();
+        }
+        private void villainButton_Click(object sender, RoutedEventArgs e)
+        {
+            game.UseVillainCombination();
+            DrawGamerInformation();
+
+            game.PerformStep();
+            DrawGamerInformation();
+        }
+
+        //extra button clicks
         private void Rules_Click(object sender, RoutedEventArgs e)
         {
             RulesWindow s = new RulesWindow();
@@ -58,62 +146,14 @@ namespace DragonSave
                 s.Close();
         }
 
-        public void MakeAlertImpossibleCombination()
-        {
-            ImpossibleCombinationAlert alert = new ImpossibleCombinationAlert();
-            if (alert.ShowDialog() == true)
-                alert.Close();
-        }
-
-        private void startButton_Click(object sender, RoutedEventArgs e)
-        {
-            controller = new Controller();
-            
-            int gamersAmount = (btnFour.IsChecked == true) ? 4 : (btnThree.IsChecked == true) ? 3 : 2;
-            game = controller.StartGame(gamersAmount);
-
-            foreach (var gamer in game.Gamers)
-            {
-                DrawCards(gamer);
-            }
-
-            ShowActionCards();
-            DisplayPossibleCombination(game.Gamers[Game.CurrentGamer]);
-        }
-        private void endButton_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
-        private void ShowActionCards()
-        {
-            //Show action cards
-            mmButton.Visibility =  Visibility.Visible;
-            nmfButton.Visibility = Visibility.Visible;
-            ffButton.Visibility = Visibility.Visible;
-            villainButton.Visibility = Visibility.Visible;
-
-            //Show information about current gamer
-            lbCurrentGamer.Visibility = Visibility.Visible;
-            lbCurrentGamerAmount.Visibility = Visibility.Visible;
-            lbCurrentGamerAmount.Content = Game.CurrentGamer;
-            lbDesiredGamersAmt.Visibility = Visibility.Hidden;
-            btnFour.Visibility = Visibility.Hidden;
-            btnThree.Visibility = Visibility.Hidden;
-            btnTwo.Visibility = Visibility.Hidden;
-
-            //Show EndGame
-            startButton.Visibility = Visibility.Hidden;
-            endButton.Visibility = Visibility.Visible;
-        }
-
+        //drawing
         private void DrawCards(Gamer gamer)
         {
             switch (gamer.GamerID)
             {
-                case 0: 
+                case 0:
                     {
-                        
+
                         myUri = new Uri(@game.Gamers[0].GamerCards[0].ImgSource, UriKind.RelativeOrAbsolute);
                         Card11.Source = new BitmapImage(myUri);
                         myUri = new Uri(@game.Gamers[0].GamerCards[1].ImgSource, UriKind.RelativeOrAbsolute);
@@ -163,26 +203,112 @@ namespace DragonSave
                     }
                 default:
                     break;
-
             }
+        }
+        private void DrawEndGame()
+        {
+            //Show EndGame
+            startButton.Visibility = Visibility.Hidden;
+            endButton.Visibility = Visibility.Visible;
+        }
+        private void DrawGamerInformation()
+        {
+            //Draw information about current gamer
+            DrawCurrentGamerInfo();
 
+            //Drawing possible gamer combinations
+            DrawPossibleCombination(game.Gamers[Game.CurrentGamer]);
+
+            //Draw Gamer cards
+            DrawCards(game.Gamers[Game.CurrentGamer]);
+
+            //Draw Gamer eggs and dragons
+            DrawEggsDragonsCards(game.Gamers[Game.CurrentGamer]);
         }
 
-        private void changeButton_Click(object sender, RoutedEventArgs e)
+        private void DrawCurrentGamerInfo()
         {
-            controller.gamerController.UseThrowCardCombination(game, game.Gamers[0], 2);
+            //Draw information about current gamer
+            lbCurrentGamer.Visibility = Visibility.Visible;
+            lbCurrentGamerAmount.Visibility = Visibility.Visible;
+            lbCurrentGamerAmount.Content = $"{Game.CurrentGamer} {game.Gamers[Game.CurrentGamer].Name}";
+            lbDesiredGamersAmt.Visibility = Visibility.Hidden;
+            btnFour.Visibility = Visibility.Hidden;
+            btnThree.Visibility = Visibility.Hidden;
+            btnTwo.Visibility = Visibility.Hidden;
         }
-        private void mmButton_Click(object sender, RoutedEventArgs e)
-        {
-            controller.gamerController.UseMotherMotherCombination(game, game.Gamers[0]);
-            controller.gameController.PerformStep(game);
 
-            DisplayPossibleCombination(game.Gamers[Game.CurrentGamer]);
-            
+        private void DrawEggsDragonsCards(Gamer gamer)
+        {
+            switch (gamer.GamerID)
+            {
+                case 0:
+                    {
+
+                        //myUri = new Uri(@game.Gamers[0].GamerCards[0].ImgSource, UriKind.RelativeOrAbsolute);
+                        //Card11.Source = new BitmapImage(myUri);
+                        //myUri = new Uri(@game.Gamers[0].GamerCards[1].ImgSource, UriKind.RelativeOrAbsolute);
+                        //Card12.Source = new BitmapImage(myUri);
+                        //myUri = new Uri(@game.Gamers[0].GamerCards[2].ImgSource, UriKind.RelativeOrAbsolute);
+                        //Card13.Source = new BitmapImage(myUri);
+                        //myUri = new Uri(@game.Gamers[0].GamerCards[3].ImgSource, UriKind.RelativeOrAbsolute);
+                        //Card14.Source = new BitmapImage(myUri);
+                        LD1.Content = game.Gamers[0].GamerDragons.Count;
+                        ED1.Content = game.Gamers[0].GamerEggs.Count;
+
+                        break;
+                    }
+                case 1:
+                    {
+                        //myUri = new Uri(@game.Gamers[1].GamerCards[0].ImgSource, UriKind.RelativeOrAbsolute);
+                        //Card21.Source = new BitmapImage(myUri);
+                        //myUri = new Uri(@game.Gamers[1].GamerCards[1].ImgSource, UriKind.RelativeOrAbsolute);
+                        //Card22.Source = new BitmapImage(myUri);
+                        //myUri = new Uri(@game.Gamers[1].GamerCards[2].ImgSource, UriKind.RelativeOrAbsolute);
+                        //Card23.Source = new BitmapImage(myUri);
+                        //myUri = new Uri(@game.Gamers[1].GamerCards[3].ImgSource, UriKind.RelativeOrAbsolute);
+                        //Card24.Source = new BitmapImage(myUri);
+                        LD2.Content = game.Gamers[1].GamerDragons.Count;
+                        ED2.Content = game.Gamers[1].GamerEggs.Count;
+                        break;
+                    }
+                case 2:
+                    {
+                        //myUri = new Uri(@game.Gamers[2].GamerCards[0].ImgSource, UriKind.RelativeOrAbsolute);
+                        //Card31.Source = new BitmapImage(myUri);
+                        //myUri = new Uri(@game.Gamers[2].GamerCards[1].ImgSource, UriKind.RelativeOrAbsolute);
+                        //Card32.Source = new BitmapImage(myUri);
+                        //myUri = new Uri(@game.Gamers[2].GamerCards[2].ImgSource, UriKind.RelativeOrAbsolute);
+                        //Card33.Source = new BitmapImage(myUri);
+                        //myUri = new Uri(@game.Gamers[2].GamerCards[3].ImgSource, UriKind.RelativeOrAbsolute);
+                        //Card34.Source = new BitmapImage(myUri);
+                        LD3.Content = game.Gamers[2].GamerDragons.Count;
+                        ED3.Content = game.Gamers[2].GamerEggs.Count;
+                        break;
+
+                    }
+                case 3:
+                    {
+                        //myUri = new Uri(@game.Gamers[3].GamerCards[0].ImgSource, UriKind.RelativeOrAbsolute);
+                        //Card41.Source = new BitmapImage(myUri);
+                        //myUri = new Uri(@game.Gamers[3].GamerCards[1].ImgSource, UriKind.RelativeOrAbsolute);
+                        //Card42.Source = new BitmapImage(myUri);
+                        //myUri = new Uri(@game.Gamers[3].GamerCards[2].ImgSource, UriKind.RelativeOrAbsolute);
+                        //Card43.Source = new BitmapImage(myUri);
+                        //myUri = new Uri(@game.Gamers[3].GamerCards[3].ImgSource, UriKind.RelativeOrAbsolute);
+                        //Card44.Source = new BitmapImage(myUri);
+                        LD4.Content = game.Gamers[3].GamerDragons.Count;
+                        ED4.Content = game.Gamers[3].GamerEggs.Count;
+                        break;
+                    }
+                default:
+                    break;
+            }
         }
 
-        private void DisplayPossibleCombination(Gamer gamer)
+        private void DrawPossibleCombination(Gamer gamer)
         {
+            changeButton.Visibility = Visibility.Visible;
             ffButton.Visibility = Visibility.Hidden;
             nmfButton.Visibility = Visibility.Hidden;
             mmButton.Visibility = Visibility.Hidden;
@@ -206,55 +332,12 @@ namespace DragonSave
 
         }
 
-        private void nmfButton_Click(object sender, RoutedEventArgs e)
+        //alerts
+        public void MakeAlertImpossibleCombination()
         {
-            controller.gamerController.UseNestMotherFatherCombination(game, game.Gamers[0]);
-        }
-        private void ffButton_Click(object sender, RoutedEventArgs e)
-        {
-            controller.gamerController.UseFatherFatherCombination(game, game.Gamers[0]);
-        }
-        private void villainButton_Click(object sender, RoutedEventArgs e)
-        {
-            controller.gamerController.UseVillainCombination(game, game.Gamers[0]);
-        }        
-
-        private void btnRegister_Click_1(object sender, RoutedEventArgs e)
-        {
-            
-
-            if (txtLogin.Text == "" || txtPassword.Text == "")
-            {
-                btnRegister.IsEnabled = false;
-                MessageBox.Show("Written all fields");
-                txtLogin.Text += "";
-                txtPassword.Text += "";  
-            }
-            else if(txtLogin.Text != "" || txtPassword.Text != "")
-            {                
-                btnRegister.IsEnabled = true;
-                person.login = txtLogin.Text;
-                person.password = txtPassword.Text;
-                switch (PasswordStrengthCheker.GetPasswordStrength(person.password))
-                {
-                    case 1:
-                    case 2:
-                    case 3:
-                        MessageBox.Show("Is not good password");
-                        break;
-                    case 4:
-                        MessageBox.Show("Is good password");
-                        break;
-                    case 5:
-                        MessageBox.Show("Is very good password");
-                        break;
-                }
-
-                Person.WritenFile(person);
-                gridLoginPassword.Visibility = Visibility.Hidden;
-                gridGame.Visibility = Visibility.Visible;
-            }
-            
+            ImpossibleCombinationAlert alert = new ImpossibleCombinationAlert();
+            if (alert.ShowDialog() == true)
+                alert.Close();
         }
     }
 

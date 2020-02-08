@@ -63,11 +63,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controller\Controller.cs" />
-    <Compile Include="Controller\GameController.cs" />
-    <Compile Include="Controller\GamerController.cs" />
-    <Compile Include="Controller\IActions.cs" />
-    <Compile Include="GragonSaveTest.cs" />
+    <Compile Include="DragonSaveTest.cs" />
     <Compile Include="Model\Bot.cs" />
     <Compile Include="Model\Card.cs" />
     <Compile Include="Model\Combination.cs" />

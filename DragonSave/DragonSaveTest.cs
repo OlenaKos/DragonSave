@@ -10,7 +10,7 @@ using System.Reflection;
 namespace DragonSave
 {
     [TestFixture]
-    class GragonSaveTest
+    class DragonSaveTest
     {
         [Test]
         public void Length_8_returned5()
