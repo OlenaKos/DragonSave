@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DragonSave.Combination" Collapsed="true">
+    <Position X="0.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Combination.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DragonSave.Egg">
+    <Position X="3.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Egg.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DragonSave.Game" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="DragonSave.Game.PossibleCombDelegate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Model\Game.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>YQIAAAAAAACAAQAAgACIIAgQKAAQAgKCAAAEAAAAAAA=</HashCode>
+      <FileName>Model\Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="DragonSave.Combinations">
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAQAAAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Model\Combination.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

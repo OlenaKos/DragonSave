@@ -84,10 +84,10 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Image x:Name="D1" Grid.Column="6" Grid.Row="12" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Child1.jpg" Visibility="Visible"></Image>
-        <Image Name="E1" Grid.Column="8" Grid.Row="12" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Eg1.jpg" Visibility="Visible"></Image>
-        <Label Name="LD1" Grid.Column="6" Grid.Row="12" Grid.ColumnSpan="2" Grid.RowSpan="2" Content="{Binding LD1}" Visibility="Visible"></Label>
-        <Label Name="ED1" Grid.Column="8" Grid.Row="12" Grid.ColumnSpan="2" Grid.RowSpan="2" Content="{Binding ED1}" Visibility="Visible"></Label>
+        <Image x:Name="D1" Grid.Column="6" Grid.Row="12" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Child1.jpg" Visibility="Hidden"></Image>
+        <Image Name="E1" Grid.Column="8" Grid.Row="12" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Eg1.jpg" Visibility="Hidden"></Image>
+            <Label Name="LD1" FontSize="40" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="LawnGreen" Grid.Column="6" Grid.Row="12" Grid.ColumnSpan="2" Grid.RowSpan="2" Content="{Binding LD1}" Visibility="Visible"></Label>
+            <Label Name="ED1" FontSize="40" VerticalAlignment="Center"  HorizontalAlignment="Center" Foreground="LawnGreen" Grid.Column="8" Grid.Row="12" Grid.ColumnSpan="2" Grid.RowSpan="2" Content="{Binding ED1}" Visibility="Visible"></Label>
         <Image x:Name="Card11" Grid.Column="4" Grid.Row="14" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Close1.gif" Visibility="Visible"></Image>
             <Image x:Name="Card12" Grid.Column="6" Grid.Row="14" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Close1.gif" Visibility="Visible"></Image>
             <Image x:Name="Card13" Grid.Column="8" Grid.Row="14" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Close1.gif" Visibility="Visible"></Image>
@@ -135,10 +135,10 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Image Name="D2" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Child1.jpg" Visibility="Visible"></Image>
-        <Image Name="E2" Grid.Column="2" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Eg1.jpg" Visibility="Visible"></Image>
-        <Label Name="LD2" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Content="{Binding LD2}" Visibility="Visible"></Label>
-        <Label Name="ED2" Grid.Column="2" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Content="{Binding ED2}" Visibility="Visible"></Label>
+        <Image Name="D2" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Child1.jpg" Visibility="Hidden"></Image>
+        <Image Name="E2" Grid.Column="2" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Eg1.jpg" Visibility="Hidden"></Image>
+            <Label Name="LD2" FontSize="40" VerticalAlignment="Center"  HorizontalAlignment="Center" Foreground="LawnGreen" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Content="{Binding LD2}" Visibility="Visible"></Label>
+            <Label Name="ED2" FontSize="40" VerticalAlignment="Center"  HorizontalAlignment="Center" Foreground="LawnGreen" Grid.Column="2" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Content="{Binding ED2}" Visibility="Visible"></Label>
         <Image x:Name="Card21" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Close1.gif" Visibility="Visible"></Image>
             <Image x:Name="Card22" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Close1.gif" Visibility="Visible"></Image>
             <Image x:Name="Card23" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Close1.gif" Visibility="Visible"></Image>
@@ -186,10 +186,10 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            <Image Name="D3" Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Child1.JPG" Visibility="Visible"></Image>
-            <Image Name="E3" Grid.Column="8" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Eg1.JPG" Visibility="Visible"></Image>
-            <Label Name="LD3" Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Visibility="Visible"></Label>
-            <Label Name="ED3" Grid.Column="8" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Visibility="Visible"></Label>
+            <Image Name="D3" Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Child1.JPG" Visibility="Hidden"></Image>
+            <Image Name="E3" Grid.Column="8" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Eg1.JPG" Visibility="Hidden"></Image>
+            <Label Name="LD3" FontSize="40" VerticalAlignment="Center"  HorizontalAlignment="Center" Foreground="LawnGreen" Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Visibility="Visible"></Label>
+            <Label Name="ED3" FontSize="40" VerticalAlignment="Center"  HorizontalAlignment="Center" Foreground="LawnGreen" Grid.Column="8" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Visibility="Visible"></Label>
             <Image x:Name="Card31" Grid.Column="4" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Close1.GIF" Visibility="Visible"></Image>
             <Image x:Name="Card32" Grid.Column="6" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Close1.GIF" Visibility="Visible"></Image>
             <Image x:Name="Card33" Grid.Column="8" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Close1.GIF" Visibility="Visible"></Image>
@@ -238,10 +238,10 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            <Image Name="D4" Grid.Column="12" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Child1.JPG" Visibility="Visible"></Image>
-            <Image Name="E4" Grid.Column="12" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Eg1.JPG" Visibility="Visible"></Image>
-            <Label Name="LD4" Grid.Column="12" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Content="{Binding LD4}" Visibility="Visible"></Label>
-            <Label Name="ED4" Grid.Column="12" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Content="{Binding ED4}" Visibility="Visible"></Label>
+            <Image Name="D4" Grid.Column="12" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Child1.JPG" Visibility="Hidden"></Image>
+            <Image Name="E4" Grid.Column="12" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Eg1.JPG" Visibility="Hidden"></Image>
+            <Label Name="LD4" FontSize="40" VerticalAlignment="Center"  HorizontalAlignment="Center" Foreground="LawnGreen" Grid.Column="12" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Content="{Binding LD4}" Visibility="Visible"></Label>
+            <Label Name="ED4" FontSize="40" VerticalAlignment="Center"  HorizontalAlignment="Center" Foreground="LawnGreen" Grid.Column="12" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Content="{Binding ED4}" Visibility="Visible"></Label>
             <Image x:Name="Card41" Grid.Column="14" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Close1.GIF" Visibility="Visible"></Image>
             <Image x:Name="Card42" Grid.Column="14" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Close1.GIF" Visibility="Visible"></Image>
             <Image x:Name="Card43" Grid.Column="14" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/View/image/Close1.GIF" Visibility="Visible"></Image>

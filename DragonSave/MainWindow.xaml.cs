@@ -35,15 +35,6 @@ namespace DragonSave
         //main buttons click
         private void startButton_Click(object sender, RoutedEventArgs e)
         {
-            //fill content eggs and dragons             
-            LD1.Content = 0;
-            ED1.Content = 0;
-            LD2.Content = 0;
-            ED2.Content = 0;
-            LD3.Content = 0;
-            ED3.Content = 0;
-            LD4.Content = 0;
-            ED4.Content = 0;
 
             //start game
             int gamersAmount = (btnFour.IsChecked == true) ? 4 : (btnThree.IsChecked == true) ? 3 : 2;
@@ -121,6 +112,10 @@ namespace DragonSave
         }
         private void villainButton_Click(object sender, RoutedEventArgs e)
         {
+            SelectGamerWindow selectGamer =  new SelectGamerWindow();
+            selectGamer.Show();
+            int iGamer = (selectGamer.btnGamer2.IsChecked == true) ? 1 : (selectGamer.btnGamer3.IsChecked == true) ? 2 : 3;
+
             game.UseVillainCombination();
             DrawGamerInformation();
 
@@ -296,61 +291,62 @@ namespace DragonSave
             {
                 case 0:
                     {
-
-                        //myUri = new Uri(@game.Gamers[0].GamerCards[0].ImgSource, UriKind.RelativeOrAbsolute);
-                        //Card11.Source = new BitmapImage(myUri);
-                        //myUri = new Uri(@game.Gamers[0].GamerCards[1].ImgSource, UriKind.RelativeOrAbsolute);
-                        //Card12.Source = new BitmapImage(myUri);
-                        //myUri = new Uri(@game.Gamers[0].GamerCards[2].ImgSource, UriKind.RelativeOrAbsolute);
-                        //Card13.Source = new BitmapImage(myUri);
-                        //myUri = new Uri(@game.Gamers[0].GamerCards[3].ImgSource, UriKind.RelativeOrAbsolute);
-                        //Card14.Source = new BitmapImage(myUri);
-                        LD1.Content = game.Gamers[0].GamerDragons.Count;
-                        ED1.Content = game.Gamers[0].GamerEggs.Count;
+                        if (game.Gamers[0].GamerDragons.Count > 0)
+                        {
+                            D1.Visibility = Visibility.Visible;
+                            LD1.Content = game.Gamers[0].GamerDragons.Count;
+                        }
+                        if (game.Gamers[0].GamerEggs.Count > 0)
+                        {
+                            E1.Visibility = Visibility.Visible;
+                            ED1.Content = game.Gamers[0].GamerEggs.Count;
+                        }
+                        
 
                         break;
                     }
                 case 1:
                     {
-                        //myUri = new Uri(@game.Gamers[1].GamerCards[0].ImgSource, UriKind.RelativeOrAbsolute);
-                        //Card21.Source = new BitmapImage(myUri);
-                        //myUri = new Uri(@game.Gamers[1].GamerCards[1].ImgSource, UriKind.RelativeOrAbsolute);
-                        //Card22.Source = new BitmapImage(myUri);
-                        //myUri = new Uri(@game.Gamers[1].GamerCards[2].ImgSource, UriKind.RelativeOrAbsolute);
-                        //Card23.Source = new BitmapImage(myUri);
-                        //myUri = new Uri(@game.Gamers[1].GamerCards[3].ImgSource, UriKind.RelativeOrAbsolute);
-                        //Card24.Source = new BitmapImage(myUri);
-                        LD2.Content = game.Gamers[1].GamerDragons.Count;
-                        ED2.Content = game.Gamers[1].GamerEggs.Count;
+                        if (game.Gamers[1].GamerDragons.Count > 0)
+                        {
+                            D2.Visibility = Visibility.Visible;
+                            LD2.Content = game.Gamers[1].GamerDragons.Count;
+                        }
+                        if (game.Gamers[1].GamerEggs.Count > 0)
+                        {
+                            E2.Visibility = Visibility.Visible;
+                            ED2.Content = game.Gamers[1].GamerEggs.Count;
+                        }
                         break;
                     }
                 case 2:
                     {
-                        //myUri = new Uri(@game.Gamers[2].GamerCards[0].ImgSource, UriKind.RelativeOrAbsolute);
-                        //Card31.Source = new BitmapImage(myUri);
-                        //myUri = new Uri(@game.Gamers[2].GamerCards[1].ImgSource, UriKind.RelativeOrAbsolute);
-                        //Card32.Source = new BitmapImage(myUri);
-                        //myUri = new Uri(@game.Gamers[2].GamerCards[2].ImgSource, UriKind.RelativeOrAbsolute);
-                        //Card33.Source = new BitmapImage(myUri);
-                        //myUri = new Uri(@game.Gamers[2].GamerCards[3].ImgSource, UriKind.RelativeOrAbsolute);
-                        //Card34.Source = new BitmapImage(myUri);
-                        LD3.Content = game.Gamers[2].GamerDragons.Count;
-                        ED3.Content = game.Gamers[2].GamerEggs.Count;
+                        if (game.Gamers[2].GamerDragons.Count > 0)
+                        {
+                            D3.Visibility = Visibility.Visible;
+                            LD3.Content = game.Gamers[2].GamerDragons.Count;
+                        }
+                        if (game.Gamers[2].GamerEggs.Count > 0)
+                        {
+                            E3.Visibility = Visibility.Visible;
+                            ED3.Content = game.Gamers[2].GamerEggs.Count;
+                        }
+
                         break;
 
                     }
                 case 3:
                     {
-                        //myUri = new Uri(@game.Gamers[3].GamerCards[0].ImgSource, UriKind.RelativeOrAbsolute);
-                        //Card41.Source = new BitmapImage(myUri);
-                        //myUri = new Uri(@game.Gamers[3].GamerCards[1].ImgSource, UriKind.RelativeOrAbsolute);
-                        //Card42.Source = new BitmapImage(myUri);
-                        //myUri = new Uri(@game.Gamers[3].GamerCards[2].ImgSource, UriKind.RelativeOrAbsolute);
-                        //Card43.Source = new BitmapImage(myUri);
-                        //myUri = new Uri(@game.Gamers[3].GamerCards[3].ImgSource, UriKind.RelativeOrAbsolute);
-                        //Card44.Source = new BitmapImage(myUri);
-                        LD4.Content = game.Gamers[3].GamerDragons.Count;
-                        ED4.Content = game.Gamers[3].GamerEggs.Count;
+                        if (game.Gamers[3].GamerDragons.Count > 0)
+                        {
+                            D4.Visibility = Visibility.Visible;
+                            LD4.Content = game.Gamers[3].GamerDragons.Count;
+                        }
+                        if (game.Gamers[3].GamerEggs.Count > 0)
+                        {
+                            E4.Visibility = Visibility.Visible;
+                            ED4.Content = game.Gamers[3].GamerEggs.Count;
+                        }
                         break;
                     }
                 default:
