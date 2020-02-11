@@ -8,7 +8,8 @@ namespace DragonSave
 {
 
     class Game
-    {
+    {       
+
         public static int MoveCounter = 0;
         public static bool isGameRunning = true;
         public static int CurrentGamer { set; get; }
@@ -141,7 +142,10 @@ namespace DragonSave
 
         public void UseVillainCombination() // corresponds villainButton
         {
-            throw new NotImplementedException();
+            int gamerSelect = SelectGamerWindow.iGamer;
+            
+
+
         }
 
         public void UpdatePossibleCombinations(Gamer gamer)

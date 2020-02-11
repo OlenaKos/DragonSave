@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DragonSave"
         mc:Ignorable="d"
-        Title="DragonSave" Height="600" Width="600">
+        Title="DragonSave" Height="700" Width="800">
     <Grid>
 
         <Grid x:Name="gridGame">
@@ -317,7 +317,7 @@
             <Button x:Name="Dev" Grid.Column="13" Grid.Row="1" Grid.ColumnSpan="3" FontSize="11" Background="LightBlue" Click="Dev_Click">Разработчики</Button>
 
         </Grid>
-        <Grid x:Name="gridLoginPassword" Visibility="Visible" >
+        <Grid x:Name="gridLoginPassword" Visibility="Visible">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="147*"/>

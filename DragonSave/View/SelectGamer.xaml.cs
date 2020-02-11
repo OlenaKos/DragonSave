@@ -19,15 +19,26 @@ namespace DragonSave
     /// </summary>
     public partial class SelectGamerWindow : Window
     {
+        public static int iGamer;
         public SelectGamerWindow()
         {
             InitializeComponent();
-        }
-
+        }        
+        
         private void btnOKGamer_click(object sender, RoutedEventArgs e)
         {
-            int iGamer = (btnGamer2.IsChecked == true) ? 1 : (btnGamer3.IsChecked == true)? 2 : 3;
-            
+            if (btnGamer2.IsChecked == true || btnGamer3.IsChecked == true || btnGamer4.IsChecked == true)
+            {
+                iGamer = (btnGamer2.IsChecked == true) ? 1 : (btnGamer3.IsChecked == true) ? 2 : 3;
+                this.Close();
+            }
+            else
+                MessageBox.Show("Select player");            
+        }
+
+        public static int Select()
+        {
+            return iGamer; 
         }
     }
 }

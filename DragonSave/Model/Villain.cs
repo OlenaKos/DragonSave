@@ -12,5 +12,6 @@ namespace DragonSave
         {
             ImgSource = "pack://application:,,,/View/image/Vor1.jpg";
         }
+
     }
 }

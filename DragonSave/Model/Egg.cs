@@ -11,6 +11,11 @@ namespace DragonSave
         public Egg()
         {
             ImgSource = "pack://application:,,,/View/image/Child1.jpg";
-        }
+        }   
+        
+        //public int SomeMethod(int x)
+        //{
+        //    return x + 1000;
+        //}
     }
 }
