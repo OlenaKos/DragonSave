@@ -45,10 +45,14 @@ namespace DragonSave
             {
                 DrawCards(gamer);
             }
+            DrawDeck();
             DrawGamerInformation();
             DrawEndGame();
             DrawPossibleCombination(game.Gamers[Game.CurrentGamer]);
         }
+
+
+
         private void endButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
@@ -80,35 +84,32 @@ namespace DragonSave
         private void changeButton_Click(object sender, RoutedEventArgs e)
         {
             game.UseThrowCardCombination(0);
-            DrawGamerInformation();
-
             game.PerformStep();
-            DrawGamerInformation();
+
+            DrawStep();
         }
         private void mmButton_Click(object sender, RoutedEventArgs e)
         {
             game.UseMotherMotherCombination();
-            DrawGamerInformation();
-
             game.PerformStep();
-            DrawGamerInformation();    
 
+            DrawStep();
         }
         private void nmfButton_Click(object sender, RoutedEventArgs e)
         {
             game.UseNestMotherFatherCombination();
-            DrawGamerInformation();
-
             game.PerformStep();
-            DrawGamerInformation();
+
+            DrawStep();
+
         }
+
         private void ffButton_Click(object sender, RoutedEventArgs e)
         {
             game.UseFatherFatherCombination();
-            DrawGamerInformation();
-
             game.PerformStep();
-            DrawGamerInformation();
+
+            DrawStep();
         }
         private void villainButton_Click(object sender, RoutedEventArgs e)
         {
@@ -117,10 +118,9 @@ namespace DragonSave
             int iGamer = (selectGamer.btnGamer2.IsChecked == true) ? 1 : (selectGamer.btnGamer3.IsChecked == true) ? 2 : 3;
 
             game.UseVillainCombination();
-            DrawGamerInformation();
-
             game.PerformStep();
-            DrawGamerInformation();
+
+            DrawStep();
         }
 
         //extra button clicks
@@ -196,7 +196,10 @@ namespace DragonSave
                     break;
             }
         }
-
+        private void DrawDeck()
+        {
+            DeckCards.Visibility = Visibility.Visible;
+        }
         private void DrawMarkOnCards(Gamer gamer, double opacityValue)
         {
             switch (gamer.GamerID)
@@ -239,7 +242,6 @@ namespace DragonSave
                     break;
             }
         }
-
         private void DrawEndGame()
         {
             //Show EndGame
@@ -248,17 +250,25 @@ namespace DragonSave
         }
         private void DrawGamerInformation()
         {
+            //Current gamer
             //Draw information about current gamer
             DrawCurrentGamerInfo();
 
             //Drawing possible gamer combinations
             DrawPossibleCombination(game.Gamers[Game.CurrentGamer]);
 
-            //Draw Gamer cards
-            DrawCards(game.Gamers[Game.CurrentGamer]);
+            //Common part
+            //Draw Gamers cards
+            foreach (var gamer in game.Gamers)
+            {
+                DrawCards(gamer);
+            }
 
-            //Draw Gamer eggs and dragons
-            DrawEggsDragonsCards(game.Gamers[Game.CurrentGamer]);
+            //Draw Gamers eggs and dragons
+            foreach (var gamer in game.Gamers)
+            {
+                DrawEggsDragonsCards(gamer);   
+            }
 
             //disable cards of all gamers except of current
             for (int i = 0; i < game.Gamers.Count; i++)
@@ -294,12 +304,24 @@ namespace DragonSave
                         if (game.Gamers[0].GamerDragons.Count > 0)
                         {
                             D1.Visibility = Visibility.Visible;
+                            LD1.Visibility = Visibility.Visible;
                             LD1.Content = game.Gamers[0].GamerDragons.Count;
+                        }
+                        else
+                        {
+                            D1.Visibility = Visibility.Hidden;
+                            LD1.Visibility = Visibility.Hidden;
                         }
                         if (game.Gamers[0].GamerEggs.Count > 0)
                         {
                             E1.Visibility = Visibility.Visible;
+                            ED1.Visibility = Visibility.Visible;
                             ED1.Content = game.Gamers[0].GamerEggs.Count;
+                        }
+                        else
+                        {
+                            ED1.Visibility = Visibility.Hidden;
+                            ED1.Visibility = Visibility.Hidden;
                         }
                         
 
@@ -310,12 +332,25 @@ namespace DragonSave
                         if (game.Gamers[1].GamerDragons.Count > 0)
                         {
                             D2.Visibility = Visibility.Visible;
+                            LD2.Visibility = Visibility.Visible;
                             LD2.Content = game.Gamers[1].GamerDragons.Count;
                         }
+                        else
+                        {
+                            D2.Visibility = Visibility.Hidden;
+                            LD2.Visibility = Visibility.Hidden;
+                        }
+
                         if (game.Gamers[1].GamerEggs.Count > 0)
                         {
                             E2.Visibility = Visibility.Visible;
+                            ED2.Visibility = Visibility.Visible;
                             ED2.Content = game.Gamers[1].GamerEggs.Count;
+                        }
+                        else
+                        {
+                            ED2.Visibility = Visibility.Hidden;
+                            ED2.Visibility = Visibility.Hidden;
                         }
                         break;
                     }
@@ -324,12 +359,25 @@ namespace DragonSave
                         if (game.Gamers[2].GamerDragons.Count > 0)
                         {
                             D3.Visibility = Visibility.Visible;
+                            LD3.Visibility = Visibility.Visible;
                             LD3.Content = game.Gamers[2].GamerDragons.Count;
                         }
+                        else
+                        {
+                            D3.Visibility = Visibility.Hidden;
+                            LD3.Visibility = Visibility.Hidden;
+                        }
+
                         if (game.Gamers[2].GamerEggs.Count > 0)
                         {
                             E3.Visibility = Visibility.Visible;
+                            ED3.Visibility = Visibility.Visible;
                             ED3.Content = game.Gamers[2].GamerEggs.Count;
+                        }
+                        else
+                        {
+                            E3.Visibility = Visibility.Hidden;
+                            ED3.Visibility = Visibility.Hidden;
                         }
 
                         break;
@@ -340,12 +388,25 @@ namespace DragonSave
                         if (game.Gamers[3].GamerDragons.Count > 0)
                         {
                             D4.Visibility = Visibility.Visible;
+                            LD4.Visibility = Visibility.Visible;
                             LD4.Content = game.Gamers[3].GamerDragons.Count;
                         }
+                        else
+                        {
+                            D4.Visibility = Visibility.Hidden;
+                            LD4.Visibility = Visibility.Hidden;
+                        }
+
                         if (game.Gamers[3].GamerEggs.Count > 0)
                         {
                             E4.Visibility = Visibility.Visible;
+                            ED4.Visibility = Visibility.Visible;
                             ED4.Content = game.Gamers[3].GamerEggs.Count;
+                        }
+                        else
+                        {
+                            E4.Visibility = Visibility.Hidden;
+                            ED4.Visibility = Visibility.Hidden;
                         }
                         break;
                     }
@@ -377,6 +438,81 @@ namespace DragonSave
                 villainButton.Visibility = Visibility.Visible;
             }
 
+        }
+        private void DrawWinner()
+        {
+            //disable cards of all gamers including of current
+            for (int i = 0; i < game.Gamers.Count; i++)
+            {
+                DrawMarkOnCards(game.Gamers[i], 0.7);
+            }
+
+            //Disable egg and dragon cards for all gamers
+            for (int i = 0; i < game.Gamers.Count; i++)
+            {
+                DrawMarkOnEggDragonCards(game.Gamers[i], 0.7);
+            }
+
+            //enter winning message
+            lbGameMessages.Content = $"Congratulations! We have a winner: ";
+            lbGameMessages.Visibility = Visibility.Visible;
+            lbGameWinner.Content = $"{game.Gamers[Game.Winner].Name}";
+            lbGameWinner.Visibility = Visibility.Visible;
+        }
+
+        private void DrawMarkOnEggDragonCards(Gamer gamer, double opacityValue)
+        {
+            switch (gamer.GamerID)
+            {
+                case 0:
+                    {
+                        D1.Opacity = opacityValue;
+                        LD1.Opacity = opacityValue;
+                        E1.Opacity = opacityValue;
+                        ED1.Opacity = opacityValue;
+                        break;
+                    }
+                case 1:
+                    {
+                        D2.Opacity = opacityValue;
+                        LD2.Opacity = opacityValue;
+                        E2.Opacity = opacityValue;
+                        ED2.Opacity = opacityValue;
+                        break;
+                    }
+                case 2:
+                    {
+                        D3.Opacity = opacityValue;
+                        LD3.Opacity = opacityValue;
+                        E3.Opacity = opacityValue;
+                        ED3.Opacity = opacityValue;
+
+                        break;
+
+                    }
+                case 3:
+                    {
+                        D4.Opacity = opacityValue;
+                        LD4.Opacity = opacityValue;
+                        E4.Opacity = opacityValue;
+                        ED4.Opacity = opacityValue;
+                        break;
+                    }
+                default:
+                    break;
+            }
+        }
+
+        private void DrawStep()
+        {
+            if (Game.isGameRunning == true)
+            {
+                DrawGamerInformation();
+            }
+            else
+            {
+                DrawWinner();
+            }
         }
 
         //alerts

@@ -197,7 +197,6 @@
 
 
             <!--4 основных карты Player-4-->
-
             <ListBox Name="ListBoxP4_1" Grid.Column="14" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="2">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
@@ -250,8 +249,11 @@
 
 
             <!--Карты на столе-->
+            <!--Игровые сообщения-->
+            <Label x:Name ="lbGameMessages" Foreground="LawnGreen" FontWeight="ExtraBold" FontSize="15"  Content="Игровые сообщения" Grid.Column="4" Grid.Row="4" Grid.ColumnSpan="8" Visibility="Hidden" ></Label>
+            <Label x:Name ="lbGameWinner" Foreground="LawnGreen" FontWeight="ExtraBold" FontSize="25"  Content="Игровые сообщения" Grid.Column="4" Grid.Row="5" Grid.ColumnSpan="8" Grid.RowSpan="2" Visibility="Hidden" ></Label>
             <!--Драконы-->
-            <ListBox Name="Dragons" Grid.Column="6" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" >
+            <ListBox Name="Dragons" Grid.Column="6" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Visibility="Hidden">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -262,7 +264,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
             <!--Яйца-->
-            <ListBox Name="Eggs" Grid.Column="8" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <ListBox Name="Eggs" Grid.Column="8" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Visibility="Hidden">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -273,18 +275,19 @@
                 </ListBox.ItemTemplate>
             </ListBox>
             <!--Колода-->
-            <ListBox Name="Deck" Grid.Column="6" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <Image x:Name="DeckCards" Grid.Column="6" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2"  Source="/View/image/Close1.GIF" Visibility="Hidden" />
+            <ListBox Name="Deck" Grid.Column="6" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Visibility="Hidden">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel x:Name="DeckStack"  Orientation="Horizontal">
                             <Label Content="{Binding DeckC}" />
-                            <Image Source="{Binding DeckP}"/>
+                            
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
             <!--Отбой-->
-            <ListBox Name="Retreat" Grid.Column="8" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <ListBox Name="Retreat" Grid.Column="8" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Visibility="Hidden">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">

@@ -9,11 +9,11 @@ namespace DragonSave
     class Deck
     {
         public static int amountVillain = 4;
-        public static int amountDragon = 24;
-        public static int amountEgg = 24;
-        public static int amountMother = 10;
-        public static int amountFather = 10;
-        public static int amountNest = 8;
+        public static int amountDragon = 14;
+        public static int amountEgg = 14;
+        public static int amountMother = 15;
+        public static int amountFather = 15;
+        public static int amountNest = 12;
         public List<Card> deck { get; set; }
         public Deck() 
         {

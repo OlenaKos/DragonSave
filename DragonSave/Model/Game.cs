@@ -29,7 +29,12 @@ namespace DragonSave
                 Gamers.Add(new Bot());
             }
             GiveCardsToGamers(MainDeck);
-            UpdatePossibleCombinations(Gamers[0]);       
+
+            //update possible combinations for all gamers 
+            foreach (var gamer in Gamers)
+            {
+                UpdatePossibleCombinations(gamer);       
+            }
         }
 
         public void GiveCardsToGamers(Deck deck)
@@ -48,8 +53,8 @@ namespace DragonSave
         public void PerformStep()
         {
             //winner exist checking
-            isGameRunning = isWinnerExist();
-            if (isGameRunning != true)
+            isGameRunning = (!isWinnerExist());
+            if (isGameRunning == true)
             {
                 //Move counter of current gamer forvard
                 CurrentGamer += 1;
@@ -59,11 +64,16 @@ namespace DragonSave
                 }
 
                 //Generate list of possible combinations
-                UpdatePossibleCombinations(Gamers[CurrentGamer]);
+                foreach (var gamer in Gamers)
+                {
+                    UpdatePossibleCombinations(gamer);
+                }
+                
             }
             else
             {
                 // Hooray we have a winner
+
 
             }
             
@@ -78,6 +88,8 @@ namespace DragonSave
                 if (gamer.GamerDragons.Count == 3)
                 {
                     res = true;
+                    Winner = gamer.GamerID;
+                    break;
                 }
             }
 
@@ -94,11 +106,17 @@ namespace DragonSave
 
         public void UseMotherMotherCombination()  //corresponds mmButton
         {
-            Mother mother = new Mother();
-            int IDMother = Gamers[CurrentGamer].GamerCards.IndexOf(mother);
+            //throw cards
+            int IDMother = DefineCardIDByType("DragonSave.Mother");
             UseThrowCardCombination(IDMother);
-            IDMother = Gamers[CurrentGamer].GamerCards.IndexOf(mother);
+            IDMother = DefineCardIDByType("DragonSave.Mother");
             UseThrowCardCombination(IDMother);
+
+            //remove 1 egg
+            Gamers[CurrentGamer].GamerEggs.RemoveAt(0);
+
+            //add a dragon
+            Gamers[CurrentGamer].GamerDragons.Add(new Dragon());
         }
 
         public void UseNestMotherFatherCombination() //corresponds mfnButton
@@ -149,6 +167,7 @@ namespace DragonSave
             List<Combinations> allComb = new List<Combinations>() { Combinations.FatherFather,
                 Combinations.MotherFatherNest, Combinations.MotherMother,
                 Combinations.Villain };
+            gamer.GamerPossibleComb.Clear();
 
             foreach (var comb in allComb)
             {
