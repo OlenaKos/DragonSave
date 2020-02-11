@@ -79,13 +79,7 @@
     <Compile Include="Model\Villain.cs" />
     <Compile Include="Model\PasswordStrengthCheker.cs" />
     <Compile Include="Model\Person.cs" />
-    <Compile Include="View\ImpossibleCombinationAlert.xaml.cs">
-      <DependentUpon>ImpossibleCombinationAlert.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\Rules.xaml.cs" />
-    <Compile Include="View\SelectGamer.xaml.cs">
-      <DependentUpon>SelectGamer.xaml</DependentUpon>
-    </Compile>
     <Page Include="View\Developers.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -103,17 +97,9 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\ImpossibleCombinationAlert.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\Rules.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\SelectGamer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

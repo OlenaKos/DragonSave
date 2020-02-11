@@ -611,14 +611,6 @@ namespace DragonSave
             }
         }
 
-        //alerts
-        public void MakeAlertImpossibleCombination()
-        {
-            ImpossibleCombinationAlert alert = new ImpossibleCombinationAlert();
-            if (alert.ShowDialog() == true)
-                alert.Close();
-        }
-
 
     }
 
