@@ -20,7 +20,7 @@ namespace DragonSave
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    
+
 
     public partial class MainWindow : Window
     {
@@ -28,7 +28,7 @@ namespace DragonSave
         public Uri myUri;
         public static Person person;
         public MainWindow()
-        {    
+        {
             InitializeComponent();
         }
 
@@ -50,9 +50,6 @@ namespace DragonSave
             DrawEndGame();
             DrawPossibleCombination(game.Gamers[Game.CurrentGamer]);
         }
-
-
-
         private void endButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
@@ -83,6 +80,8 @@ namespace DragonSave
         //button clicks
         private void changeButton_Click(object sender, RoutedEventArgs e)
         {
+            //throw two cards
+            game.UseThrowCardCombination(0);
             game.UseThrowCardCombination(0);
             game.PerformStep();
 
@@ -103,7 +102,6 @@ namespace DragonSave
             DrawStep();
 
         }
-
         private void ffButton_Click(object sender, RoutedEventArgs e)
         {
             game.UseFatherFatherCombination();
@@ -113,14 +111,100 @@ namespace DragonSave
         }
         private void villainButton_Click(object sender, RoutedEventArgs e)
         {
-            SelectGamerWindow selectGamer =  new SelectGamerWindow();
-            selectGamer.Show();
-            int iGamer = (selectGamer.btnGamer2.IsChecked == true) ? 1 : (selectGamer.btnGamer3.IsChecked == true) ? 2 : 3;
+            gridPickPlayer.Visibility = Visibility.Visible;
+            btnGamer0.Visibility = Visibility.Hidden;
+            btnGamer1.Visibility = Visibility.Hidden;
+            btnGamer2.Visibility = Visibility.Hidden;
+            btnGamer3.Visibility = Visibility.Hidden;
+
+            //display possible victims
+            for (int i = 0; i < game.Gamers.Count; i++)
+            {
+                if (i != Game.CurrentGamer)
+                {
+                    DisplayVictim(game.Gamers[i]);
+                }
+            }
+        }
+        private void btnVictimOK_Click(object sender, RoutedEventArgs e)
+        {
+            List<RadioButton> rbVictims = new List<RadioButton>() { btnGamer0, btnGamer1, btnGamer2, btnGamer3 };
+
+            for (int i = 0; i < rbVictims.Count; i++)
+            {
+                if (rbVictims[i].IsChecked == true)
+                {
+                    game.Victim = i;
+                    break;
+                }
+            }
 
             game.UseVillainCombination();
             game.PerformStep();
 
+            //disable grid
+            gridPickPlayer.Visibility = Visibility.Hidden;
+
             DrawStep();
+        }
+
+        private void DisplayVictim(Gamer gamer)
+        {
+            switch (gamer.GamerID)
+            {
+                case 0:
+                    {
+                        if (gamer.GamerEggs.Count > 0)
+                        {
+                            btnGamer0.Visibility = Visibility.Visible;
+                        }
+                        else 
+                        {
+                            btnGamer0.Visibility = Visibility.Hidden;
+                        }
+                        break;
+                    }
+                case 1:
+                    {
+                        if (gamer.GamerEggs.Count > 0)
+                        {
+                            btnGamer1.Visibility = Visibility.Visible;
+                        }
+                        else
+                        {
+                            btnGamer1.Visibility = Visibility.Hidden;
+                        }
+                        break;
+                    }
+                case 2:
+                    {
+
+                        if (gamer.GamerEggs.Count > 0)
+                        {
+                            btnGamer2.Visibility = Visibility.Visible;
+                        }
+                        else
+                        {
+                            btnGamer2.Visibility = Visibility.Hidden;
+                        }
+                        break;
+
+                    }
+                case 3:
+                    {
+                        if (gamer.GamerEggs.Count > 0)
+                        {
+                            btnGamer3.Visibility = Visibility.Visible;
+                        }
+                        else
+                        {
+                            btnGamer3.Visibility = Visibility.Hidden;
+                        }
+                        break;
+                    }
+                default:
+                    break;
+            }
         }
 
         //extra button clicks
@@ -242,6 +326,48 @@ namespace DragonSave
                     break;
             }
         }
+        private void DrawMarkOnEggDragonCards(Gamer gamer, double opacityValue)
+        {
+            switch (gamer.GamerID)
+            {
+                case 0:
+                    {
+                        D1.Opacity = opacityValue;
+                        LD1.Opacity = opacityValue;
+                        E1.Opacity = opacityValue;
+                        ED1.Opacity = opacityValue;
+                        break;
+                    }
+                case 1:
+                    {
+                        D2.Opacity = opacityValue;
+                        LD2.Opacity = opacityValue;
+                        E2.Opacity = opacityValue;
+                        ED2.Opacity = opacityValue;
+                        break;
+                    }
+                case 2:
+                    {
+                        D3.Opacity = opacityValue;
+                        LD3.Opacity = opacityValue;
+                        E3.Opacity = opacityValue;
+                        ED3.Opacity = opacityValue;
+
+                        break;
+
+                    }
+                case 3:
+                    {
+                        D4.Opacity = opacityValue;
+                        LD4.Opacity = opacityValue;
+                        E4.Opacity = opacityValue;
+                        ED4.Opacity = opacityValue;
+                        break;
+                    }
+                default:
+                    break;
+            }
+        }
         private void DrawEndGame()
         {
             //Show EndGame
@@ -267,7 +393,7 @@ namespace DragonSave
             //Draw Gamers eggs and dragons
             foreach (var gamer in game.Gamers)
             {
-                DrawEggsDragonsCards(gamer);   
+                DrawEggsDragonsCards(gamer);
             }
 
             //disable cards of all gamers except of current
@@ -282,7 +408,7 @@ namespace DragonSave
                     DrawMarkOnCards(game.Gamers[i], 0.7); //disabling all other gamers
                 }
             }
-            
+
         }
         private void DrawCurrentGamerInfo()
         {
@@ -320,10 +446,10 @@ namespace DragonSave
                         }
                         else
                         {
-                            ED1.Visibility = Visibility.Hidden;
+                            E1.Visibility = Visibility.Hidden;
                             ED1.Visibility = Visibility.Hidden;
                         }
-                        
+
 
                         break;
                     }
@@ -349,7 +475,7 @@ namespace DragonSave
                         }
                         else
                         {
-                            ED2.Visibility = Visibility.Hidden;
+                            E2.Visibility = Visibility.Hidden;
                             ED2.Visibility = Visibility.Hidden;
                         }
                         break;
@@ -421,10 +547,10 @@ namespace DragonSave
             nmfButton.Visibility = Visibility.Hidden;
             mmButton.Visibility = Visibility.Hidden;
             villainButton.Visibility = Visibility.Hidden;
-            if (gamer.GamerPossibleComb.Contains(Combinations.FatherFather) == true)
-            {
-                ffButton.Visibility = Visibility.Visible;
-            }
+            //if (gamer.GamerPossibleComb.Contains(Combinations.FatherFather) == true)
+            //{
+            //    ffButton.Visibility = Visibility.Visible;
+            //}
             if (gamer.GamerPossibleComb.Contains(Combinations.MotherFatherNest) == true)
             {
                 nmfButton.Visibility = Visibility.Visible;
@@ -453,56 +579,19 @@ namespace DragonSave
                 DrawMarkOnEggDragonCards(game.Gamers[i], 0.7);
             }
 
+            //disable possible combinations
+            changeButton.Visibility = Visibility.Hidden;
+            ffButton.Visibility = Visibility.Hidden;
+            nmfButton.Visibility = Visibility.Hidden;
+            mmButton.Visibility = Visibility.Hidden;
+            villainButton.Visibility = Visibility.Hidden;
+
             //enter winning message
             lbGameMessages.Content = $"Congratulations! We have a winner: ";
             lbGameMessages.Visibility = Visibility.Visible;
             lbGameWinner.Content = $"{game.Gamers[Game.Winner].Name}";
             lbGameWinner.Visibility = Visibility.Visible;
         }
-
-        private void DrawMarkOnEggDragonCards(Gamer gamer, double opacityValue)
-        {
-            switch (gamer.GamerID)
-            {
-                case 0:
-                    {
-                        D1.Opacity = opacityValue;
-                        LD1.Opacity = opacityValue;
-                        E1.Opacity = opacityValue;
-                        ED1.Opacity = opacityValue;
-                        break;
-                    }
-                case 1:
-                    {
-                        D2.Opacity = opacityValue;
-                        LD2.Opacity = opacityValue;
-                        E2.Opacity = opacityValue;
-                        ED2.Opacity = opacityValue;
-                        break;
-                    }
-                case 2:
-                    {
-                        D3.Opacity = opacityValue;
-                        LD3.Opacity = opacityValue;
-                        E3.Opacity = opacityValue;
-                        ED3.Opacity = opacityValue;
-
-                        break;
-
-                    }
-                case 3:
-                    {
-                        D4.Opacity = opacityValue;
-                        LD4.Opacity = opacityValue;
-                        E4.Opacity = opacityValue;
-                        ED4.Opacity = opacityValue;
-                        break;
-                    }
-                default:
-                    break;
-            }
-        }
-
         private void DrawStep()
         {
             if (Game.isGameRunning == true)
@@ -522,6 +611,8 @@ namespace DragonSave
             if (alert.ShowDialog() == true)
                 alert.Close();
         }
+
+
     }
 
 }

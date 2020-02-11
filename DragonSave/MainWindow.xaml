@@ -252,6 +252,8 @@
             <!--Игровые сообщения-->
             <Label x:Name ="lbGameMessages" Foreground="LawnGreen" FontWeight="ExtraBold" FontSize="15"  Content="Игровые сообщения" Grid.Column="4" Grid.Row="4" Grid.ColumnSpan="8" Visibility="Hidden" ></Label>
             <Label x:Name ="lbGameWinner" Foreground="LawnGreen" FontWeight="ExtraBold" FontSize="25"  Content="Игровые сообщения" Grid.Column="4" Grid.Row="5" Grid.ColumnSpan="8" Grid.RowSpan="2" Visibility="Hidden" ></Label>
+            
+            
             <!--Драконы-->
             <ListBox Name="Dragons" Grid.Column="6" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Visibility="Hidden">
                 <ListBox.ItemTemplate>
@@ -333,6 +335,22 @@
             <TextBox x:Name="txtLogin" HorizontalAlignment="Left" Height="62" Margin="291,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="264" FontSize="28" Background="Beige" Grid.Column="1" />
             <TextBox x:Name="txtPassword" HorizontalAlignment="Left" Height="62" Margin="291,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="264" Background="Beige" Grid.Column="1" FontSize="28"/>
             <Button x:Name="btnRegister" Content="Login" Padding="5,5,5,5" FontSize="28" Grid.Column="1" HorizontalAlignment="Left" Margin="169,332,0,0" VerticalAlignment="Top" Width="260" Height="58" Click="btnRegister_Click"/>
+
+        </Grid>
+
+        <Grid x:Name="gridPickPlayer" Visibility="Hidden" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="147*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.Background>
+                <ImageBrush ImageSource="/View/image/fon.jpg" Stretch="UniformToFill"/>
+            </Grid.Background>
+            <RadioButton GroupName="ChosenGamer" Name="btnGamer0" HorizontalAlignment="Left" Margin="56,127,0,0" VerticalAlignment="Top" Width="207" Grid.Column="1" Foreground="White" FontSize="28"> Gamer0</RadioButton>
+            <RadioButton GroupName="ChosenGamer" Name="btnGamer1" HorizontalAlignment="Left" Margin="56,219,0,0" VerticalAlignment="Top" Width="207" Grid.Column="1" Foreground="White" FontSize="28">Gamer1</RadioButton>
+            <RadioButton GroupName="ChosenGamer" Name="btnGamer2" HorizontalAlignment="Left" Margin="291,127,0,0" VerticalAlignment="Top" Width="207" Grid.Column="1" Foreground="White" FontSize="28">Gamer2</RadioButton>
+            <RadioButton GroupName="ChosenGamer" Name="btnGamer3" HorizontalAlignment="Left" Margin="291,219,0,0" VerticalAlignment="Top" Width="207" Grid.Column="1" Foreground="White" FontSize="28">Gamer3</RadioButton>
+            <Button x:Name="btnVictimOK" Content="OK" Padding="5,5,5,5" FontSize="28" Grid.Column="1" HorizontalAlignment="Left" Margin="169,332,0,0" VerticalAlignment="Top" Width="260" Height="58" Click="btnVictimOK_Click"/>
 
         </Grid>
 

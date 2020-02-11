@@ -13,6 +13,7 @@ namespace DragonSave
         public static bool isGameRunning = true;
         public static int CurrentGamer { set; get; }
         public static int Winner { set; get; }
+        public int Victim { get; set; }
         public List<Gamer> Gamers { get; set; }
         public Deck MainDeck { set; get; }
 
@@ -159,7 +160,14 @@ namespace DragonSave
 
         public void UseVillainCombination() // corresponds villainButton
         {
-            throw new NotImplementedException();
+            if (Gamers[Victim].GamerPossibleComb.Contains(Combinations.FatherFather) == true)
+            {
+                Gamers[Victim].GamerEggs.RemoveAt(0);
+                Gamers[CurrentGamer].GamerEggs.Add(new Egg());
+                int IDVillain = DefineCardIDByType("DragonSave.Villain");
+                UseThrowCardCombination(IDVillain);
+            }
+
         }
 
         public void UpdatePossibleCombinations(Gamer gamer)
