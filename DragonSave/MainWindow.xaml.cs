@@ -80,9 +80,8 @@ namespace DragonSave
         //button clicks
         private void changeButton_Click(object sender, RoutedEventArgs e)
         {
-            //throw two cards
-            game.UseThrowCardCombination(0);
-            game.UseThrowCardCombination(0);
+            //throw one card
+            game.UseThrowCardCombination(0, game.Gamers[Game.CurrentGamer]);
             game.PerformStep();
 
             DrawStep();
@@ -144,8 +143,13 @@ namespace DragonSave
 
             //disable grid
             gridPickPlayer.Visibility = Visibility.Hidden;
+            
 
             DrawStep();
+
+            //show message about father-father combination implemented
+            lbGameMessages.Content = "Your victim used a father combination.";
+            lbGameMessages.Visibility = Visibility.Visible;
         }
 
         private void DisplayVictim(Gamer gamer)
@@ -408,6 +412,9 @@ namespace DragonSave
                     DrawMarkOnCards(game.Gamers[i], 0.7); //disabling all other gamers
                 }
             }
+
+            //disable game message if presented
+            lbGameMessages.Visibility = Visibility.Hidden;
 
         }
         private void DrawCurrentGamerInfo()

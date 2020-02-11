@@ -97,21 +97,21 @@ namespace DragonSave
             return res;
         }
 
-        public void UseThrowCardCombination(int CardID) //corresponds changeButton
+        public void UseThrowCardCombination(int CardID, Gamer gamer) //corresponds changeButton
         {
-            MainDeck.deck.Add(Gamers[CurrentGamer].GamerCards[CardID]);
-            Gamers[CurrentGamer].GamerCards.RemoveAt(CardID);
-            Gamers[CurrentGamer].GamerCards.Add(MainDeck.deck[0]);
+            MainDeck.deck.Add(gamer.GamerCards[CardID]);//Gamers[CurrentGamer]
+            gamer.GamerCards.RemoveAt(CardID);
+            gamer.GamerCards.Add(MainDeck.deck[0]);
             MainDeck.deck.RemoveAt(0);
         }
 
         public void UseMotherMotherCombination()  //corresponds mmButton
         {
             //throw cards
-            int IDMother = DefineCardIDByType("DragonSave.Mother");
-            UseThrowCardCombination(IDMother);
-            IDMother = DefineCardIDByType("DragonSave.Mother");
-            UseThrowCardCombination(IDMother);
+            int IDMother = DefineCardIDByType("DragonSave.Mother", Gamers[CurrentGamer]);
+            UseThrowCardCombination(IDMother, Gamers[CurrentGamer]);
+            IDMother = DefineCardIDByType("DragonSave.Mother", Gamers[CurrentGamer]);
+            UseThrowCardCombination(IDMother, Gamers[CurrentGamer]);
 
             //remove 1 egg
             Gamers[CurrentGamer].GamerEggs.RemoveAt(0);
@@ -124,23 +124,23 @@ namespace DragonSave
         {
 
             //throw cards
-            int IDMother = DefineCardIDByType("DragonSave.Mother");
-            UseThrowCardCombination(IDMother);
-            int IDFather = DefineCardIDByType("DragonSave.Father");
-            UseThrowCardCombination(IDFather);
-            int IDNest = DefineCardIDByType("DragonSave.Nest");
-            UseThrowCardCombination(IDNest);
+            int IDMother = DefineCardIDByType("DragonSave.Mother", Gamers[CurrentGamer]);
+            UseThrowCardCombination(IDMother, Gamers[CurrentGamer]);
+            int IDFather = DefineCardIDByType("DragonSave.Father", Gamers[CurrentGamer]);
+            UseThrowCardCombination(IDFather, Gamers[CurrentGamer]);
+            int IDNest = DefineCardIDByType("DragonSave.Nest", Gamers[CurrentGamer]);
+            UseThrowCardCombination(IDNest, Gamers[CurrentGamer]);
 
             //add egg
             Gamers[CurrentGamer].GamerEggs.Add(new Egg());
         }
 
-        private int DefineCardIDByType(string type)
+        private int DefineCardIDByType(string type, Gamer gamer)
         {
             int res = -1;
-            for (int i = 0; i < Gamers[CurrentGamer].GamerCards.Count; i++)
+            for (int i = 0; i < gamer.GamerCards.Count; i++)
             {
-                if (Gamers[CurrentGamer].GamerCards[i].GetType().ToString() == type)
+                if (gamer.GamerCards[i].GetType().ToString() == type)
                 {
                     res = i;
                     break;
@@ -153,21 +153,32 @@ namespace DragonSave
         {
             Father father = new Father();
             int IDFather = Gamers[Game.CurrentGamer].GamerCards.IndexOf(father);
-            UseThrowCardCombination(IDFather);
+            UseThrowCardCombination(IDFather, Gamers[CurrentGamer]);
             IDFather = Gamers[Game.CurrentGamer].GamerCards.IndexOf(father);
-            UseThrowCardCombination(IDFather);
+            UseThrowCardCombination(IDFather, Gamers[CurrentGamer]);
         }
 
         public void UseVillainCombination() // corresponds villainButton
         {
             if (Gamers[Victim].GamerPossibleComb.Contains(Combinations.FatherFather) == true)
             {
+                //drop villain for current gamer
+                int IDVillain = DefineCardIDByType("DragonSave.Villain", Gamers[CurrentGamer]);
+                UseThrowCardCombination(IDVillain, Gamers[CurrentGamer]);
+
+                //drop two fathers for victim
+                int IDFather = DefineCardIDByType("DragonSave.Father", Gamers[Victim]);
+                UseThrowCardCombination(IDFather, Gamers[Victim]);
+                IDFather = DefineCardIDByType("DragonSave.Father", Gamers[Victim]);
+                UseThrowCardCombination(IDFather, Gamers[Victim]);
+            }
+            else 
+            {
                 Gamers[Victim].GamerEggs.RemoveAt(0);
                 Gamers[CurrentGamer].GamerEggs.Add(new Egg());
-                int IDVillain = DefineCardIDByType("DragonSave.Villain");
-                UseThrowCardCombination(IDVillain);
+                int IDVillain = DefineCardIDByType("DragonSave.Villain", Gamers[CurrentGamer]);
+                UseThrowCardCombination(IDVillain, Gamers[CurrentGamer]);
             }
-
         }
 
         public void UpdatePossibleCombinations(Gamer gamer)
