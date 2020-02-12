@@ -409,7 +409,7 @@ namespace DragonSave
                 }
                 else
                 {
-                    DrawMarkOnCards(game.Gamers[i], 0.7); //disabling all other gamers
+                    DrawMarkOnCards(game.Gamers[i], 0.3); //disabling all other gamers
                 }
             }
 

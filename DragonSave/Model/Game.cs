@@ -195,7 +195,6 @@ namespace DragonSave
                     gamer.GamerPossibleComb.Add(comb);
                 }
             }
-
         }
 
         private bool IsPossibleCombination(Gamer gamer, Combinations comb)
